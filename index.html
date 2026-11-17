@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Vietnam Promotion Sales Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout idea: white sheet, navy headings, light-blue info boxes, one monthly calendar leading the page. */
+  --bg:#FFFFFF; --ink:#0D0D4B; --muted:#50555B; --line:#DAE3ED;
+  --blue:#0047BB; --blue-soft:#EAF1FB; --blue-mid:#CCDAF1; --navy:#0D0D4B; --accent:#16E9D7;
+  --live:#0B7D74; --live-bg:#DCF5F4;
+  --soon:#0047BB; --soon-bg:#CCDAF1;
+  --hold:#8A5300; --hold-bg:#FBEBCF;
+  --font:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:#FFFFFF}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 18px 64px}
+a{color:var(--blue)}
+header{display:flex;flex-direction:column;gap:10px;padding-bottom:18px;border-bottom:2px solid var(--navy)}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+h1{margin:0;font-size:34px;line-height:1.15;font-weight:800;text-wrap:balance}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--muted);font-size:13px}
+.meta b{color:var(--ink);font-weight:600}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+nav a{font-size:13px;font-weight:600;color:var(--navy);text-decoration:none;border:1px solid var(--line);background:#fff;padding:6px 12px;border-radius:999px}
+nav a:hover,nav a:focus-visible{border-color:var(--blue);color:var(--blue);outline:none}
+nav a.src{background:var(--blue);border-color:var(--blue);color:#fff}
+section{margin-top:38px}
+.sec-head{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.tag{font-size:12px;font-weight:800;color:var(--blue);border:1.5px solid var(--blue);border-radius:6px;padding:1px 7px}
+h2{margin:0;font-size:21px;font-weight:800;text-wrap:balance}
+.sub{margin:0 0 14px;color:var(--muted);font-size:14px;max-width:70ch}
+.box{background:var(--blue-soft);border:1px solid var(--blue-mid);border-radius:10px;padding:13px 16px;font-size:14px}
+.box ul{margin:6px 0 0;padding-left:18px}
+.chip{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.03em;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.chip.live{background:var(--live-bg);color:var(--live)}
+.chip.soon{background:var(--soon-bg);color:var(--soon)}
+.chip.hold{background:var(--hold-bg);color:var(--hold)}
+
+/* calendar */
+.cal{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.cal-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--navy);color:#fff;padding:10px 14px;flex-wrap:wrap}
+.cal-title{font-size:18px;font-weight:800;min-width:150px;text-align:center}
+.cal-bar button{font-family:var(--font);font-size:14px;font-weight:700;color:var(--navy);background:#fff;border:0;border-radius:8px;padding:7px 14px;cursor:pointer}
+.cal-bar button:disabled{opacity:.35;cursor:default}
+.cal-bar button:focus-visible,.cal-bar select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.cal-bar select{font-family:var(--font);font-size:13px;font-weight:600;border-radius:8px;border:0;padding:7px 10px;color:var(--navy);background:#fff}
+.cal-scroll{overflow-x:auto}
+.cal-grid{min-width:640px}
+.dow{display:grid;grid-template-columns:repeat(7,1fr);background:var(--blue-soft);border-bottom:1px solid var(--line)}
+.dow div{padding:7px 0;text-align:center;font-size:12px;font-weight:700;color:var(--muted)}
+.week{position:relative;display:flex;border-bottom:1px solid var(--line)}
+.week:last-child{border-bottom:0}
+.day{flex:1 1 0;border-left:1px solid var(--line);padding:4px 6px;font-size:12px;font-weight:600;color:var(--navy);min-width:0}
+.day:first-child{border-left:0}
+.day.out{color:#9A9FA8;background:#FAFBFD}
+.day.today span{display:inline-block;background:var(--blue);color:#fff;border-radius:999px;min-width:22px;padding:0 5px;text-align:center}
+.bar{position:absolute;height:20px;display:flex;align-items:center;padding:0 8px;font-size:11.5px;font-weight:700;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-decoration:none;color:#fff}
+.bar.thin{height:15px;font-size:10.5px}
+.bar.retail{background:var(--blue)}
+.bar.ib{background:var(--navy)}
+.bar.retail.always{background:var(--blue-mid);color:var(--navy)}
+.bar.ib.always{background:#CFCFDB;color:var(--navy)}
+a.bar:hover,a.bar:focus-visible{filter:brightness(1.15);outline:none}
+.cal-legend{display:flex;flex-wrap:wrap;gap:8px 16px;padding:10px 14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);background:#fff}
+.cal-legend i{display:inline-block;width:14px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.cal-note{margin:10px 2px 0;font-size:13px;color:var(--muted)}
+
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:14px}
+.card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:10px;scroll-margin-top:16px}
+.card.ib{border-top-color:var(--navy)}
+.card:target{box-shadow:0 0 0 3px var(--blue-mid)}
+.card h3{margin:0;font-size:17px;font-weight:800;line-height:1.25}
+.card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.code{font-size:12px;color:var(--muted);font-weight:600}
+dl{margin:0;display:grid;grid-template-columns:92px 1fr;gap:6px 10px;font-size:14px}
+dt{color:var(--muted);font-weight:600}
+dd{margin:0}
+.pitch{background:var(--blue-soft);border-radius:8px;padding:9px 12px;font-size:14px;font-weight:600}
+.small{font-size:12.5px;color:var(--muted)}
+.links{display:flex;flex-wrap:wrap;gap:6px;padding-top:10px;border-top:1px solid var(--line)}
+.lk{font-size:12.5px;font-weight:700;text-decoration:none;color:var(--blue);border:1.5px solid var(--blue);border-radius:999px;padding:4px 11px}
+.lk:hover,.lk:focus-visible{background:var(--blue);color:#fff;outline:none}
+.lk.off{color:#7B808A;border:1.5px dashed #C3C8D0;font-weight:600}
+
+/* templates */
+.tpl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}
+.tpl-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.tpl-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.tpl-head h3{margin:0;font-size:16px;font-weight:800}
+.tpl-tags{display:flex;gap:6px;flex-wrap:wrap}
+pre.tpl{margin:0;white-space:pre-wrap;word-break:break-word;font-family:var(--font);font-size:14px;background:var(--blue-soft);border:1px solid var(--blue-mid);border-radius:10px;padding:12px 14px;line-height:1.6;color:var(--ink)}
+button.copy{font-family:var(--font);font-size:13px;font-weight:700;color:#fff;background:var(--blue);border:0;border-radius:8px;padding:8px 14px;cursor:pointer;align-self:flex-start}
+button.copy:hover{filter:brightness(1.12)}
+button.copy:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px}
+@media (max-width:520px){h1{font-size:27px} dl{grid-template-columns:80px 1fr}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">STARTRADER Vietnam · Marketing</div>
+  <h1>Vietnam Promotion Sales Kit</h1>
+  <div class="meta">
+    <span><b>Cập nhật:</b> 17/11/2026</span>
+    <span><b>Dùng cho:</b> BD và Sales</span>
+  </div>
+  <nav aria-label="Mục lục">
+    <a href="#lich">Calendar</a>
+    <a href="#retail">Retail</a>
+    <a href="#ib">IB</a>
+    <a href="#template">Template bài đăng</a>
+  </nav>
+</header>
+
+<section id="luu-y" style="margin-top:20px">
+  <div class="box">
+    <b>Đọc trước khi đăng bài</b>
+    <ul>
+      <li>Chỉ đăng công khai chương trình đang chạy. Chương trình sắp chạy chỉ trao đổi nội bộ hoặc gửi riêng cho IB mục tiêu.</li>
+      <li>Dùng đúng số liệu trong T&amp;C. Không hứa lợi nhuận, không so sánh với broker khác.</li>
+      <li>Template là bản nháp. Gửi Marketing xem wording trước khi đăng lần đầu.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="lich">
+  <div class="sec-head"><span class="tag">01</span><h2>Calendar</h2></div>
+  <p class="sub">Tháng 8/2026 đến tháng 5/2027. Chỉ tô thời gian chương trình chạy. Bấm vào thanh để xem chi tiết chương trình.</p>
+  <div class="cal" id="cal">
+    <div class="cal-bar">
+      <button type="button" id="prev" aria-label="Tháng trước">‹ Trước</button>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center">
+        <div class="cal-title" id="cal-title" aria-live="polite"></div>
+        <select id="cal-select" aria-label="Chọn tháng"></select>
+      </div>
+      <button type="button" id="next" aria-label="Tháng sau">Sau ›</button>
+    </div>
+    <div class="cal-scroll"><div class="cal-grid" id="cal-grid"></div></div>
+    <div class="cal-legend">
+      <span><i style="background:#0047BB"></i>Retail</span>
+      <span><i style="background:#0D0D4B"></i>IB</span>
+      <span><i style="background:#CCDAF1"></i>Retail chạy liên tục</span>
+      <span><i style="background:#CFCFDB"></i>IB chạy liên tục</span>
+    </div>
+  </div>
+</section>
+
+<section id="retail">
+  <div class="sec-head"><span class="tag">02</span><h2>Chương trình cho khách Retail</h2></div>
+  <p class="sub">Dùng để nói chuyện với khách và đăng trong nhóm khách.</p>
+  <div class="grid">
+
+    <article class="card" id="c-bf">
+      <div class="top"><div><h3>Black Friday Power Play</h3><div class="code">PMT340 · Global adapt</div></div><span class="chip live">Giveaway đang chạy</span></div>
+      <dl>
+        <dt>Thời gian</dt><dd>Giveaway 16/11 đến 04/12. Chương trình chính 23/11 đến 04/12/2026 (giờ server).</dd>
+        <dt>Ai tham gia</dt><dd>Khách mới và cũ, mỗi User ID một tài khoản. Không áp dụng Cent, STAR Copy, PAMM, MAM.</dd>
+        <dt>Cách tham gia</dt><dd>Opt-in trên Client Portal hoặc app STARTRADER. Chỉ volume sau khi opt-in được tính.</dd>
+        <dt>Thưởng</dt><dd><b>Lucky Draw:</b> 100 người thắng, mỗi người coupon credit USD 20. Cần nạp ròng một lần từ USD 500, mỗi USD 400K notional được 1 ticket.<br><b>Top Prize:</b> nạp ròng tích lũy từ USD 1.000 và volume từ USD 2M notional, xếp theo volume: MacBook Air, Leica D-Lux 8, Nintendo Switch 2, Ray-Ban Meta Gen 2.<br><b>Giveaway mạng xã hội:</b> 5 phần USD 50 credit cho Việt Nam.</dd>
+      </dl>
+      <div class="pitch">Một lần opt-in, hai cơ hội: bốc thăm cho nhiều người, giải lớn cho người giao dịch nhiều nhất.</div>
+      <div class="small">Khách rút hoặc chuyển tiền làm net deposit xuống dưới ngưỡng có thể bị loại. Nhắc khách giữ vốn đến hết chương trình.</div>
+      <div class="links">
+        <a class="lk" href="https://www.startradervn.net/pdf/pmt340-black-friday-giveaway-social-media-tnc-vn.pdf" target="_blank" rel="noopener">T&amp;C Social Give Away</a>
+      </div>
+    </article>
+
+    <article class="card" id="c-copy">
+      <div class="top"><div><h3>STAR Copy Reward</h3><div class="code">PMT310 · Global adapt</div></div><span class="chip live">Đang chạy</span></div>
+      <dl>
+        <dt>Thời gian</dt><dd>16/11/2026 đến 21/01/2027 (khoảng 10 tuần)</dd>
+        <dt>Ai tham gia</dt><dd>Khách CPA/Retail STAR Copy được mời. Không cần opt-in.</dd>
+        <dt>Điều kiện</dt><dd>Nạp từ USD 100 vào tài khoản STAR Copy và copy trade ít nhất 1 lot chuẩn trong cùng tuần.</dd>
+        <dt>Thưởng</dt><dd>USD 5 cho mỗi tuần đủ điều kiện, tối đa 10 voucher (USD 50).</dd>
+      </dl>
+      <div class="pitch">Nạp và copy đều đặn mỗi tuần, nhận thêm USD 5 mỗi tuần.</div>
+    </article>
+
+
+
+    <article class="card" id="c-vps">
+      <div class="top"><div><h3>VPS Reimbursement</h3><div class="code">PMT078 · Always on</div></div><span class="chip live">Đang chạy</span></div>
+      <dl>
+        <dt>Thưởng</dt><dd>Hoàn chi phí VPS tối đa USD 30 mỗi tháng.</dd>
+        <dt>Điều kiện</dt><dd>Theo yêu cầu nạp tiền và volume giao dịch trong T&amp;C.</dd>
+      </dl>
+      <div class="pitch">Giao dịch tự động, VPS do STARTRADER hỗ trợ chi phí.</div>
+      <div class="links">
+        <a class="lk" href="https://www.startradervn.net/pdf/pmt078-vps-reimbursement-terms-and-conditions-vn.pdf" target="_blank" rel="noopener">T&amp;C</a>
+        <a class="lk" href="https://www.startradervn.net/vps/" target="_blank" rel="noopener">Landing page</a>
+      </div>
+    </article>
+
+    <article class="card" id="c-swap">
+      <div class="top"><div><h3>Swap Free</h3><div class="code">Always on · Client offer</div></div><span class="chip live">Đang chạy</span></div>
+      <dl>
+        <dt>Cách đăng ký</dt><dd>Đăng ký qua Sales PIC.</dd>
+        <dt>Dành cho</dt><dd>Khách có nhu cầu tài khoản không tính swap. Hỏi Marketing điều kiện chi tiết trước khi cam kết với khách.</dd>
+      </dl>
+    </article>
+  </div>
+</section>
+
+<section id="ib">
+  <div class="sec-head"><span class="tag">03</span><h2>Chương trình cho IB</h2></div>
+  <p class="sub">Gửi riêng cho IB mục tiêu. Chưa đăng công khai.</p>
+  <div class="grid">
+
+    <article class="card ib" id="c-psb">
+      <div class="top"><div><h3>Partner Switch Bonus</h3><div class="code">PMT326 · IB Bonus</div></div><span class="chip soon">Từ 19/11</span></div>
+      <dl>
+        <dt>Dành cho</dt><dd>IB chuyển về STARTRADER và duy trì hoạt động qua 6 kỳ theo tháng.</dd>
+        <dt>Tier 1</dt><dd>USD 12.000 mỗi kỳ khi đạt 2 trong 3: 40 NQC, ND USD 150K, volume USD 100M.</dd>
+        <dt>Tier 2</dt><dd>USD 6.000 mỗi kỳ khi đạt 2 trong 3: 20 NQC, ND USD 75K, volume USD 50M.</dd>
+        <dt>Tối đa</dt><dd>USD 72.000</dd>
+        <dt>NQC</dt><dd>Khách nạp ròng từ USD 500, giao dịch ít nhất 2 lot, giữ lệnh ít nhất 10 phút.</dd>
+      </dl>
+      <div class="pitch">Chuyển nhóm khách về STARTRADER, nhận thưởng theo từng kỳ khi khách thật sự giao dịch.</div>
+      <div class="small">Chỉ khách giới thiệu trực tiếp được tính. Hoạt động sub-IB không tính trừ khi được duyệt. IB phải opt-in trong 1 tháng kể từ ngày được duyệt làm đối tác. Không cộng với chương trình đối tác khác.</div>
+      <div class="links">
+        <a class="lk" href="https://www.startrader.com/pdf/startrader-partners-switch-bonus-terms-and-conditions-20261005.pdf" target="_blank" rel="noopener">T&amp;C (PDF)</a>
+        <a class="lk" href="https://www.startradervn.net/partner-switch-bonus/" target="_blank" rel="noopener">Landing page &amp; T&amp;C</a>
+      </div>
+    </article>
+
+
+    <article class="card ib" id="c-mib">
+      <div class="top"><div><h3>MIB Policy</h3><div class="code">IB Incentive · Always on</div></div><span class="chip live">Đang chạy</span></div>
+      <dl>
+        <dt>Dành cho</dt><dd>MIB phát triển mạng lưới IB và đạt kết quả kinh doanh theo tiêu chí.</dd>
+        <dt>Tài liệu</dt><dd>MIB Bonus Policy 2026 (PDF, dùng làm T&amp;C và Sale Deck)</dd>
+      </dl>
+    </article>
+
+  </div>
+</section>
+
+<section id="template">
+  <div class="sec-head"><span class="tag">04</span><h2>Template bài đăng cho Sales</h2></div>
+  <p class="sub">Bấm Copy, thay phần trong [ngoặc vuông] rồi đăng. Bài có nhãn chờ duyệt cần Marketing xem lại wording trước.</p>
+  <div class="tpl-grid">
+
+    <div class="tpl-card">
+      <div class="tpl-head"><h3>Black Friday Power Play</h3><div class="tpl-tags"><span class="chip live">Retail</span></div></div>
+<pre class="tpl" id="t1">BLACK FRIDAY POWER PLAY cùng STARTRADER
+
+Từ 23/11 đến 04/12/2026, giao dịch và có cơ hội nhận:
+• Lucky Draw: 100 phần quà, mỗi phần là coupon credit USD 20
+• Top Prize: MacBook Air, Leica D-Lux 8, Nintendo Switch 2, Ray-Ban Meta Gen 2 cho các tài khoản có volume cao nhất
+
+Cách tham gia: opt-in trên Client Portal hoặc app STARTRADER, sau đó giao dịch bình thường. Chỉ volume sau khi opt-in thành công được tính.
+
+Điều kiện chi tiết xem tại T&C: [link T&C]
+Cần hỗ trợ opt-in, nhắn [tên Sales] nhé.
+
+Giao dịch CFD có rủi ro. Chương trình áp dụng theo T&C.</pre>
+      <button class="copy" data-target="t1" type="button">Copy bài</button>
+    </div>
+
+    <div class="tpl-card">
+      <div class="tpl-head"><h3>Nhắc ngưỡng cuối chương trình</h3><div class="tpl-tags"><span class="chip live">Retail</span></div></div>
+<pre class="tpl" id="t2">Còn [số] ngày cuối của Black Friday Power Play.
+
+Để giữ cơ hội nhận quà, anh/chị lưu ý:
+• Đã opt-in chưa? Chỉ volume sau khi opt-in được tính.
+• Giữ net deposit không xuống dưới ngưỡng yêu cầu đến hết 04/12.
+
+Em hỗ trợ kiểm tra tài khoản giúp anh/chị: [tên Sales] - [liên hệ]
+
+Giao dịch CFD có rủi ro.</pre>
+      <button class="copy" data-target="t2" type="button">Copy bài</button>
+    </div>
+
+    <div class="tpl-card">
+      <div class="tpl-head"><h3>STAR Copy Reward</h3><div class="tpl-tags"><span class="chip live">Retail</span></div></div>
+<pre class="tpl" id="t3">STAR Copy Reward: copy đều mỗi tuần, nhận thêm USD 5 mỗi tuần
+
+Từ 16/11/2026 đến 21/01/2027, khách STAR Copy được mời tham gia nhận voucher USD 5 cho mỗi tuần đủ điều kiện:
+• Nạp từ USD 100 vào tài khoản STAR Copy
+• Copy trade ít nhất 1 lot chuẩn trong cùng tuần
+
+Tối đa 10 voucher (USD 50). Không cần opt-in.
+
+Chi tiết xem tại T&C: [link T&C]. Giao dịch CFD có rủi ro.</pre>
+      <button class="copy" data-target="t3" type="button">Copy bài</button>
+    </div>
+
+    <div class="tpl-card">
+      <div class="tpl-head"><h3>VPS Reimbursement</h3><div class="tpl-tags"><span class="chip live">Retail</span><span class="chip live">Đang chạy</span></div></div>
+<pre class="tpl" id="t4">Giao dịch tự động với VPS, STARTRADER hỗ trợ chi phí
+
+Khách đạt yêu cầu nạp tiền và volume được hoàn chi phí VPS tối đa USD 30 mỗi tháng.
+
+Xem điều kiện và đăng ký: https://www.startradervn.net/vps/
+Cần hỗ trợ, nhắn [tên Sales].
+
+Giao dịch CFD có rủi ro.</pre>
+      <button class="copy" data-target="t4" type="button">Copy bài</button>
+    </div>
+
+    <div class="tpl-card">
+      <div class="tpl-head"><h3>Partner Switch Bonus (tin nhắn riêng)</h3><div class="tpl-tags"><span class="chip soon">IB</span></div></div>
+<pre class="tpl" id="t5">Chào anh/chị [tên IB],
+
+STARTRADER có chương trình Partner Switch Bonus dành cho đối tác IB chuyển về STARTRADER, áp dụng từ 19/11/2026:
+• Tier 1: USD 12.000 mỗi kỳ khi đạt 2 trong 3 chỉ tiêu: 40 NQC, net deposit USD 150K, volume USD 100M
+• Tier 2: USD 6.000 mỗi kỳ khi đạt 2 trong 3 chỉ tiêu: 20 NQC, net deposit USD 75K, volume USD 50M
+• Thời gian 6 kỳ theo tháng, thưởng tối đa USD 72.000
+
+Lưu ý: chỉ tính khách do anh/chị giới thiệu trực tiếp, và cần opt-in trong 1 tháng kể từ ngày được duyệt làm đối tác.
+
+Em gửi anh/chị tài liệu chi tiết nhé: https://www.startradervn.net/partner-switch-bonus/
+Em hẹn anh/chị [thời gian] để trao đổi.</pre>
+      <button class="copy" data-target="t5" type="button">Copy bài</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Nguồn: T&amp;C chính thức của từng chương trình. Kiểm tra lại T&amp;C mới nhất trước mỗi lần đăng.
+</footer>
+</div>
+
+<script>
+(function(){
+  /* ---------- calendar ---------- */
+  var DAY=864e5;
+  function P(s){var a=s.split('-');return new Date(+a[0],+a[1]-1,+a[2]);}
+  function diff(a,b){return Math.round((a-b)/DAY);}
+  function f2(n){return (n<10?'0':'')+n;}
+  function fmt(d){return f2(d.getDate())+'/'+f2(d.getMonth()+1);}
+  /* dated programs first, always-on last, so always-on sit at the bottom of each week */
+  var PROGS=[
+    {name:'PMT299 Hành trình săn kho báu',aud:'retail',s:'2026-08-17',e:'2026-10-31',card:null},
+    {name:'PMT336 Halloween giveaway',aud:'retail',s:'2026-10-21',e:'2026-11-04',card:null},
+    {name:'Black Friday Power Play',aud:'retail',s:'2026-11-16',e:'2026-12-04',card:'c-bf'},
+    {name:'STAR Copy Reward',aud:'retail',s:'2026-11-16',e:'2027-01-21',card:'c-copy'},
+    {name:'Partner Switch Bonus',aud:'ib',s:'2026-11-19',e:'2027-05-31',card:'c-psb',open:true},
+    {name:'VPS và Swap Free',aud:'retail',s:'2026-08-01',e:'2027-05-31',card:'c-vps',always:true},
+    {name:'MIB Policy',aud:'ib',s:'2026-08-01',e:'2027-05-31',card:'c-mib',always:true}
+  ].map(function(p){p.S=P(p.s);p.E=P(p.e);return p;});
+
+  var FIRST=new Date(2026,7,1), COUNT=10; /* Aug 2026 to May 2027 */
+  var MN=['Tháng 1','Tháng 2','Tháng 3','Tháng 4','Tháng 5','Tháng 6','Tháng 7','Tháng 8','Tháng 9','Tháng 10','Tháng 11','Tháng 12'];
+  var DOW=['T2','T3','T4','T5','T6','T7','CN'];
+  var today=new Date(); today=new Date(today.getFullYear(),today.getMonth(),today.getDate());
+  var idx=0;
+  (function(){var d=diff(new Date(today.getFullYear(),today.getMonth(),1),FIRST);
+    var m=(today.getFullYear()-2026)*12+today.getMonth()-7;
+    idx=(m>=0&&m<COUNT)?m:3;})();
+
+  var grid=document.getElementById('cal-grid'), title=document.getElementById('cal-title'),
+      sel=document.getElementById('cal-select'), prev=document.getElementById('prev'), next=document.getElementById('next');
+
+  for(var i=0;i<COUNT;i++){
+    var d=new Date(2026,7+i,1), o=document.createElement('option');
+    o.value=i;o.textContent=MN[d.getMonth()]+' '+d.getFullYear();sel.appendChild(o);
+  }
+
+  function render(){
+    var first=new Date(2026,7+idx,1), y=first.getFullYear(), m=first.getMonth();
+    title.textContent=MN[m]+' / '+y; sel.value=idx;
+    prev.disabled=idx===0; next.disabled=idx===COUNT-1;
+    var last=new Date(y,m+1,0);
+    var gs=new Date(first.getTime()-((first.getDay()+6)%7)*DAY);
+    var ge=new Date(last.getTime()+(6-((last.getDay()+6)%7))*DAY);
+    var weeks=(diff(ge,gs)+1)/7;
+    var list=PROGS.filter(function(p){return p.E>=gs&&p.S<=ge;});
+    /* fixed vertical position per programme for the whole month */
+    var tops=[],acc=30;
+    list.forEach(function(p){tops.push(acc);acc+=(p.always?18:23);});
+    var wkH=acc+6;
+    var html='<div class="dow">'+DOW.map(function(x){return '<div>'+x+'</div>';}).join('')+'</div>';
+    for(var w=0;w<weeks;w++){
+      var ws=new Date(gs.getTime()+w*7*DAY);
+      html+='<div class="week" style="height:'+wkH+'px">';
+      for(var c=0;c<7;c++){
+        var dd=new Date(ws.getTime()+c*DAY);
+        var cls='day'+(dd.getMonth()!==m?' out':'')+(diff(dd,today)===0?' today':'');
+        html+='<div class="'+cls+'"><span>'+dd.getDate()+'</span></div>';
+      }
+      list.forEach(function(p,li){
+        var c0=Math.max(0,diff(p.S,ws)), c1=Math.min(6,diff(p.E,ws));
+        if(c1<0||c0>6) return;
+        var left=(c0/7*100), width=((c1-c0+1)/7*100);
+        var rl=diff(p.S,ws)>=0, rr=diff(p.E,ws)<=6;
+        var style='left:calc('+left+'% + 2px);width:calc('+width+'% - 4px);top:'+tops[li]+'px;'+
+          'border-radius:'+(rl?'6px':'0')+' '+(rr?'6px':'0')+' '+(rr?'6px':'0')+' '+(rl?'6px':'0')+';';
+        var range=p.always?'Chạy liên tục':(fmt(p.S)+' đến '+(p.open?'hết kỳ':fmt(p.E)));
+        var tip=p.name+' · '+range;
+        var cl='bar '+p.aud+(p.always?' always thin':'');
+        if(p.card){
+          html+='<a class="'+cl+'" href="#'+p.card+'" title="'+tip+'" style="'+style+'">'+p.name+'</a>';
+        }else{
+          html+='<div class="'+cl+'" title="'+tip+'" style="'+style+'">'+p.name+'</div>';
+        }
+      });
+      html+='</div>';
+    }
+    grid.innerHTML=html;
+  }
+  prev.addEventListener('click',function(){if(idx>0){idx--;render();}});
+  next.addEventListener('click',function(){if(idx<COUNT-1){idx++;render();}});
+  sel.addEventListener('change',function(){idx=+sel.value;render();});
+  render();
+
+  /* ---------- copy buttons ---------- */
+  function fallbackCopy(el){
+    var r=document.createRange();r.selectNodeContents(el);
+    var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+    var ok=false;try{ok=document.execCommand('copy');}catch(e){}
+    return ok;
+  }
+  document.querySelectorAll('button.copy').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var el=document.getElementById(btn.getAttribute('data-target'));
+      var text=el.innerText;
+      function done(ok){
+        btn.textContent=ok?'Đã copy':'Bôi đen rồi nhấn Ctrl+C';
+        setTimeout(function(){btn.textContent='Copy bài';},2000);
+      }
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){done(true);},function(){done(fallbackCopy(el));});
+      }else{done(fallbackCopy(el));}
+    });
+  });
+})();
+</script>
+</body>
+</html>
