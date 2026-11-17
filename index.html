@@ -189,6 +189,8 @@ header{min-height:300px;justify-content:center}
 .card,.tpl-card{position:relative}
 .card::after,.tpl-card::after{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:2px;pointer-events:none;background:conic-gradient(from var(--a),transparent 0 62%,rgba(22,233,215,.15) 70%,var(--accent) 94%,#fff 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);opacity:0;transition:opacity .25s}
 .card:hover::after,.tpl-card:hover::after{opacity:1;animation:run 4s linear infinite}
+.card,.tpl-card{transition:background .25s,box-shadow .25s}
+.card:hover,.tpl-card:hover{background:linear-gradient(160deg,#eefaff 0%,#e3f1ff 100%);box-shadow:0 4px 18px rgba(0,71,187,.12)}
 @keyframes run{to{--a:360deg}}
 @media (prefers-reduced-motion:reduce){.card::after,.tpl-card::after{animation:none}}
 </style>
