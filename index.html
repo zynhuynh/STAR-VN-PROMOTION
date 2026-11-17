@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vietnam Promotion Sales Kit</title>
+<title>Vietnam&#39;s Promotion Calendar</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -37,6 +37,17 @@ section{margin-top:38px}
 .tag{font-size:12px;font-weight:800;color:var(--blue);border:1.5px solid var(--blue);border-radius:6px;padding:1px 7px}
 h2{margin:0;font-size:21px;font-weight:800;text-wrap:balance}
 .sub{margin:0 0 14px;color:var(--muted);font-size:14px;max-width:70ch}
+.grp{margin:20px 0 10px;font-size:18px;font-weight:800;color:var(--blue)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 10px}
+.filters button{font-family:var(--font);font-size:13px;font-weight:700;color:var(--navy);background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:6px 13px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+.filters button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.filter-note,.soon-note{background:var(--hold-bg);color:var(--hold);border-radius:8px;padding:8px 12px;font-size:13px;font-weight:600}
+.filter-note{margin:0 0 10px;font-size:13.5px}
+.empty{color:var(--muted);font-size:14px;padding:6px 0}
+.chip.end{background:#E8EAEE;color:#50555B}
+.card[hidden]{display:none}
+section.sub-sec{margin-top:30px}
 .box{background:var(--blue-soft);border:1px solid var(--blue-mid);border-radius:10px;padding:13px 16px;font-size:14px}
 .box ul{margin:6px 0 0;padding-left:18px}
 .chip{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.03em;padding:3px 9px;border-radius:999px;white-space:nowrap}
@@ -93,7 +104,8 @@ ul.struct>li{margin-bottom:4px}
 .more>.mech{margin:10px}
 
 /* cards */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:14px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
+@media (max-width:760px){.grid{grid-template-columns:1fr}}
 .card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:10px;scroll-margin-top:16px}
 .card.ib{border-top-color:var(--navy)}
 .card:target{box-shadow:0 0 0 3px var(--blue-mid)}
@@ -131,7 +143,7 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
 
 <header>
   <div class="kicker">STARTRADER Vietnam · Marketing</div>
-  <h1>Vietnam Promotion Sales Kit</h1>
+  <h1>Vietnam's Promotion Calendar</h1>
   <div class="meta">
     <span><b>Cập nhật:</b> 17/11/2026</span>
     <span><b>Dùng cho:</b> BD và Sales, nội bộ</span>
@@ -164,15 +176,23 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
       <span>Chỉ hiển thị ngày bắt đầu của mỗi chương trình</span>
     </div>
   </div>
-  <p class="cal-note">Chưa có ngày nên chưa tô: Red Envelope Tết, Quà năm mới 2027 (IB và VIP), IB Loyalty Program, KOL programs và Refer a Friend.</p>
 </section>
 
 <section id="retail">
-  <div class="sec-head"><span class="tag">02</span><h2>Chương trình cho khách Retail</h2></div>
-  <p class="sub">Dùng để nói chuyện với khách và đăng trong nhóm khách.</p>
+  <div class="sec-head"><span class="tag">02</span><h2>Chương trình</h2></div>
+  <p class="sub">Đây là phần tóm tắt cơ chế của từng chương trình. Sales bấm vào T&amp;C hoặc Materials để xem đầy đủ thông tin chi tiết. Với Marketing Plan, đọc sheet "Content Plan" để xem thêm chi tiết.</p>
+  <div class="filters" id="filters" role="group" aria-label="Lọc theo trạng thái">
+    <button type="button" data-f="all" aria-pressed="true">Tất cả</button>
+    <button type="button" data-f="live" aria-pressed="false">Đang chạy</button>
+    <button type="button" data-f="soon" aria-pressed="false">Sắp chạy</button>
+    <button type="button" data-f="end" aria-pressed="false">Đã kết thúc</button>
+  </div>
+  <div class="filter-note" id="filter-note" hidden>Chương trình sắp chạy: T&amp;C có thể thay đổi, nên khuyến nghị Sales chưa gửi công khai chi tiết cho khách.</div>
+  <div class="empty" id="filter-empty" hidden>Chưa có chương trình nào ở trạng thái này.</div>
+  <h3 class="grp">A. Retail</h3>
   <div class="grid">
 
-    <article class="card" id="c-bf">
+    <article class="card" id="c-bf" data-start="2026-11-16" data-end="2026-12-04">
       <div class="top"><div><h3>Black Friday Power Play</h3><div class="code">PMT340 · Global adapt</div></div><span class="chip live">Giveaway đang chạy</span></div>
       <dl>
         <dt>Cấu trúc</dt><dd>Gồm 2 cơ chế:<ul class="struct"><li><b>Cơ chế chính: Trading</b>, gồm 2 phần:<ul><li>Quay số may mắn</li><li>Đua top giao dịch</li></ul></li><li><b>Cơ chế phụ: Social giveaway</b></li></ul></dd>
@@ -205,14 +225,14 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
       <div class="pitch">Một lần đăng ký, hai cơ hội nhận thưởng: quay số may mắn cho nhiều người, giải lớn cho người giao dịch nhiều nhất.</div>
       <div class="small">Nếu khách rút hoặc chuyển tiền khiến số tiền nạp ròng giảm xuống dưới mức yêu cầu, khách có thể mất điều kiện nhận thưởng. Hãy nhắc khách duy trì số dư đến hết chương trình.</div>
       <div class="links">
-        <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/UjTnsBsZ2heWSzt8uwLljSTHgWf?sheet=aXTlBi" target="_blank" rel="noopener">IMC plan</a>
+        <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/UjTnsBsZ2heWSzt8uwLljSTHgWf?sheet=aXTlBi" target="_blank" rel="noopener">Marketing Plan</a>
         <a class="lk" href="https://www.startradervn.net/pdf/pmt340-black-friday-giveaway-social-media-tnc-vn.pdf" target="_blank" rel="noopener">T&amp;C Social Give Away</a>
         <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/drive/folder/OH8qfFm7TlmCR3dDsTolqpMzgyb" target="_blank" rel="noopener">Materials (folder Lark)</a>
       </div>
       <div class="small miss">Chưa có link: T&amp;C Promotion</div>
     </article>
 
-    <article class="card" id="c-copy">
+    <article class="card" id="c-copy" data-start="2026-11-16" data-end="2027-01-21">
       <div class="top"><div><h3>STAR Copy Reward</h3><div class="code">PMT310 · Global adapt</div></div><span class="chip live">Đang chạy</span></div>
       <dl>
         <dt>Thời gian</dt><dd>16/11/2026 đến 21/01/2027 theo giờ server, khoảng 10 tuần. Mỗi tuần là một kỳ xét riêng.</dd>
@@ -234,14 +254,14 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
       </details>
       <div class="pitch">Nạp và copy đều đặn mỗi tuần, nhận thêm USD 5 mỗi tuần.</div>
       <div class="links">
-        <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/KHX6sR1DBhKOfftSb26ldgH6gWd?sheet=0SdwIE" target="_blank" rel="noopener">IMC plan</a>
+        <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/KHX6sR1DBhKOfftSb26ldgH6gWd?sheet=0SdwIE" target="_blank" rel="noopener">Marketing Plan</a>
         <a class="lk" href="https://www.startradervn.net/pdf/pmt310-starcopy-reward-terms-and-conditions-vn.pdf" target="_blank" rel="noopener">T&amp;C</a>
         <a class="lk" href="https://www.startradervn.net/starcopy-reward/" target="_blank" rel="noopener">Landing page</a>
         <a class="lk" href="https://www.canva.com/design/DAHbEGd5jdA/Mbi4u_hwYca_IWu7Vzp9TA/edit" target="_blank" rel="noopener">Material: One-page (Canva)</a>
       </div>
     </article>
 
-    <article class="card" id="c-gtr">
+    <article class="card" id="c-gtr" data-start="2026-12-07" data-end="2026-12-25">
       <div class="top"><div><h3>Golden Ticket Rush</h3><div class="code">Chưa có mã · Vietnam</div></div><span class="chip soon">Sắp chạy</span></div>
       <dl>
         <dt>Thời gian</dt><dd>07/12 đến 25/12/2026, 15 ngày.</dd>
@@ -268,12 +288,12 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
       <div class="pitch">Giao dịch GOLD nhiều hơn, tích nhiều ticket hơn.</div>
       <div class="small">Chưa công khai.</div>
       <div class="links">
-        <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/OnR1sygQAhJM9PtXyeMlssDHgge?sheet=0yVNtp" target="_blank" rel="noopener">IMC plan</a>
+        <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/OnR1sygQAhJM9PtXyeMlssDHgge?sheet=0yVNtp" target="_blank" rel="noopener">Marketing Plan</a>
       </div>
       <div class="small miss">Chưa có link: T&amp;C, Material</div>
     </article>
 
-    <article class="card" id="c-loy">
+    <article class="card" id="c-loy" data-start="2026-11-24">
       <div class="top"><div><h3>STAR Loyalty</h3><div class="code">PMT084 · Loyalty Program</div></div><span class="chip soon">Sắp chạy</span></div>
       <dl>
         <dt>Thời gian</dt><dd>Dự kiến bắt đầu 24 đến 30/11/2026, sau đó chạy liên tục.</dd>
@@ -281,13 +301,13 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
       </dl>
       <div class="small">Chưa công khai.</div>
       <div class="links">
-        <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/FH4BsI2gphLZHpt3vaGlMWGQgLh?sheet=bbuyK2" target="_blank" rel="noopener">IMC plan</a>
+        <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/FH4BsI2gphLZHpt3vaGlMWGQgLh?sheet=bbuyK2" target="_blank" rel="noopener">Marketing Plan</a>
         <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/drive/folder/QDWbfnnD6lgR91d47nSlGOD3g9g" target="_blank" rel="noopener">Materials (sẽ có, chờ cập nhật)</a>
       </div>
       <div class="small miss">Chưa có link: T&amp;C</div>
     </article>
 
-    <article class="card" id="c-vps">
+    <article class="card" id="c-vps" data-start="2025-03-10">
       <div class="top"><div><h3>VPS Reimbursement</h3><div class="code">PMT078 · Always on</div></div><span class="chip live">Đang chạy</span></div>
       <dl>
         <dt>Thời gian</dt><dd>Từ 10/03/2025, chạy liên tục đến khi có thông báo mới.</dd>
@@ -321,7 +341,7 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
       </details>
       <div class="pitch">Giao dịch tự động, VPS do STARTRADER hỗ trợ chi phí.</div>
       <div class="links">
-        <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/APatsOxSUheMkktFjojlhIyDg4w?sheet=RD9u87" target="_blank" rel="noopener">IMC plan</a>
+        <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/APatsOxSUheMkktFjojlhIyDg4w?sheet=RD9u87" target="_blank" rel="noopener">Marketing Plan</a>
         <a class="lk" href="https://www.startradervn.net/pdf/pmt078-vps-reimbursement-terms-and-conditions-vn.pdf" target="_blank" rel="noopener">T&amp;C</a>
         <a class="lk" href="https://www.startradervn.net/vps/" target="_blank" rel="noopener">Landing page</a>
         <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/Ljlcsyw31hnvuPtozk2lKTYcgMg" target="_blank" rel="noopener">Social post: PMT078 VPS Reimbursement - Material</a>
@@ -329,7 +349,7 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
       <div class="small miss">Chưa có link: One page</div>
     </article>
 
-    <article class="card" id="c-swap">
+    <article class="card" id="c-swap" data-start="2026-11-07">
       <div class="top"><div><h3>Swap Free</h3><div class="code">Always on · Client offer</div></div><span class="chip live">Đang chạy</span></div>
       <dl>
         <dt>Hình thức</dt><dd>Dịch vụ theo yêu cầu, không tự động bật cho tài khoản.</dd>
@@ -349,19 +369,56 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
       </div>
       </details>
       <div class="links">
-        <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/LaUKsEPiYhLVDstWOislQkEPged?sheet=2xUCZU" target="_blank" rel="noopener">IMC plan</a>
+        <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/LaUKsEPiYhLVDstWOislQkEPged?sheet=2xUCZU" target="_blank" rel="noopener">Marketing Plan</a>
       </div>
       <div class="small miss">Chưa có link: T&amp;C, Material</div>
+    </article>
+
+    <article class="card" id="c-pmt299" data-start="2026-08-17" data-end="2026-10-31">
+      <div class="top"><div><h3>Treasure Hunt Journey</h3><div class="code">PMT299 · Vietnam</div></div><span class="chip end">Đã kết thúc</span></div>
+      <dl>
+        <dt>Hình thức</dt><dd>Trading Contest.</dd>
+        <dt>Thời gian</dt><dd>17/08 đến 31/10/2026, khoảng 2,5 tháng.</dd>
+        <dt>Thưởng</dt><dd>12 mốc thưởng, cao nhất là 1 chiếc Porsche 911 Carrera.</dd>
+        <dt>Ai tham gia</dt><dd>Toàn bộ khách hàng tại Việt Nam.</dd>
+      </dl>
+      <details class="more">
+      <summary><span class="s-open">XEM THÊM</span><span class="s-close">THU GỌN</span></summary>
+      <div class="mech">
+        <dl>
+          <dt>Cơ chế</dt><dd>Tích lũy khối lượng giao dịch hợp lệ để mở khóa 12 mốc thưởng.</dd>
+          <dt>Tài liệu</dt><dd>One-page: PMT299 - One-Page.pdf. Materials: PMT299 Vietnam Trading Contest Materials. Sale Deck: không có.</dd>
+        </dl>
+      </div>
+      </details>
+      <div class="links">
+        <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/OY2fsJUayhSBf6tA7X5lPn6jgpd?sheet=hSc24o" target="_blank" rel="noopener">Marketing Plan</a>
+        <a class="lk" href="https://startrader-official.vercel.app/treasure-hunt-journey.html" target="_blank" rel="noopener">Landing page</a>
+      </div>
+      <div class="small miss">Chưa có link: T&amp;C, One-page, Materials</div>
+    </article>
+
+    <article class="card" id="c-pmt336" data-start="2026-10-21" data-end="2026-11-04">
+      <div class="top"><div><h3>Hunt the AirPods 5 Giveaway</h3><div class="code">PMT336 · Halloween · Vietnam</div></div><span class="chip end">Đã kết thúc</span></div>
+      <dl>
+        <dt>Hình thức</dt><dd>Social Giveaway trên Fanpage STARTRADER Vietnam, không cần giao dịch.</dd>
+        <dt>Thời gian</dt><dd>21/10 đến 04/11/2026.</dd>
+        <dt>Thưởng</dt><dd>3 giải AirPods 5.</dd>
+        <dt>Ai tham gia</dt><dd>Mọi đối tượng.</dd>
+      </dl>
+      <div class="links">
+        <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/XJo4sV1qihoCRut0FgQl8A7igqh?sheet=NNdpBe" target="_blank" rel="noopener">Marketing Plan</a>
+        <a class="lk" href="https://www.startradervn.net/pdf/pmt336-hunt-the-airpods-5-giveaway-terms-and-conditions-en-20261021.pdf" target="_blank" rel="noopener">T&amp;C</a>
+      </div>
     </article>
   </div>
 </section>
 
-<section id="ib">
-  <div class="sec-head"><span class="tag">03</span><h2>Chương trình cho IB</h2></div>
-  <p class="sub">Gửi riêng cho IB mục tiêu. Chưa đăng công khai.</p>
+<section id="ib" class="sub-sec">
+  <h3 class="grp">B. Cho IB</h3>
   <div class="grid">
 
-    <article class="card ib" id="c-psb">
+    <article class="card ib" id="c-psb" data-start="2026-11-19" data-end="2027-05-19">
       <div class="top"><div><h3>Partner Switch Bonus</h3><div class="code">PMT326 · IB Bonus</div></div><span class="chip soon">Từ 19/11</span></div>
       <dl>
         <dt>Thời gian</dt><dd>Từ 19/11/2026. Mỗi đối tác tham gia 6 kỳ, mỗi kỳ là 1 tháng.</dd>
@@ -413,7 +470,7 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
       </details>
       <div class="pitch">Chuyển nhóm khách về STARTRADER, nhận thưởng theo từng kỳ khi khách thật sự giao dịch.</div>
       <div class="links">
-        <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/Zn0RsCctKhv2sltRVF6lXnXNgWb?sheet=mQL9je" target="_blank" rel="noopener">IMC plan</a>
+        <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/Zn0RsCctKhv2sltRVF6lXnXNgWb?sheet=mQL9je" target="_blank" rel="noopener">Marketing Plan</a>
         <a class="lk" href="https://www.startradervn.net/partner-switch-bonus/" target="_blank" rel="noopener">Landing page &amp; T&amp;C</a>
         <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/drive/folder/TrH6fVeApldjFFdGRSylSJRGgHe" target="_blank" rel="noopener">Materials (folder Lark)</a>
         <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/docx/CchkdJiQqoHHopxZLmDlnXmzgKg" target="_blank" rel="noopener">Hướng dẫn cho Sales team</a>
@@ -421,7 +478,7 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
       <div class="small miss">Chưa có link: form giới thiệu IB, T&amp;C Special Deal cho Sales</div>
     </article>
 
-    <article class="card ib" id="c-tp">
+    <article class="card ib" id="c-tp" data-start="2026-11-23" data-end="2026-12-30">
       <div class="top"><div><h3>Trusted Partners</h3><div class="code">Offline · Premium gift</div></div><span class="chip hold">Chờ duyệt</span></div>
       <dl>
         <dt>Thời gian</dt><dd>23/11 đến 30/12/2026</dd>
@@ -431,7 +488,7 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
       </dl>
       <div class="small">Chưa nói với IB cho đến khi Nemo duyệt.</div>
       <div class="links">
-        <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/FQadsKzGwhzfWMtgzRIlMtTtgvg?sheet=xTO4V3" target="_blank" rel="noopener">IMC plan</a>
+        <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/FQadsKzGwhzfWMtgzRIlMtTtgvg?sheet=xTO4V3" target="_blank" rel="noopener">Marketing Plan</a>
       </div>
       <div class="small miss">Chưa có link: T&amp;C, Material</div>
     </article>
@@ -446,10 +503,10 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
       <div class="links">
         <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/file/RTDyb26QKo14Xrxc9nLlYwtKglf" target="_blank" rel="noopener">MIB Bonus Policy 2026 (T&amp;C, Sale Deck)</a>
       </div>
-      <div class="small miss">Chưa có link: IMC plan</div>
+      <div class="small miss">Chưa có link: Marketing Plan</div>
     </article>
 
-    <article class="card ib" id="c-gifts">
+    <article class="card ib" id="c-gifts" data-start="2027-02-01">
       <div class="top"><div><h3>Quà năm mới 2027</h3><div class="code">Lunar New Year · IB và VIP</div></div><span class="chip soon">Sắp chạy</span></div>
       <dl>
         <dt>Thời gian</dt><dd>Phân phối khoảng tháng 2/2027</dd>
@@ -457,7 +514,7 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
         <dt>Trạng thái</dt><dd>Đã duyệt, đang chuẩn bị. Chưa công khai.</dd>
       </dl>
       <div class="links">
-        <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/L5tosAIe8hgddMtv8iOlZQKJgjd" target="_blank" rel="noopener">IMC plan</a>
+        <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/L5tosAIe8hgddMtv8iOlZQKJgjd" target="_blank" rel="noopener">Marketing Plan</a>
       </div>
       <div class="small miss">Chưa có link: T&amp;C, Material</div>
     </article>
@@ -465,7 +522,7 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
 </section>
 
 <section id="template">
-  <div class="sec-head"><span class="tag">04</span><h2>Template bài đăng cho Sales</h2></div>
+  <div class="sec-head"><span class="tag">03</span><h2>Template bài đăng cho Sales</h2></div>
   <p class="sub">Bấm Copy, thay phần trong [ngoặc vuông] rồi đăng. Bài có nhãn chờ duyệt cần Marketing xem lại wording trước.</p>
   <div class="tpl-grid">
 
@@ -589,8 +646,8 @@ Và đây mới chỉ là khởi đầu. Team đang chuẩn bị thêm những c
   function P(s){var a=s.split('-');return new Date(+a[0],+a[1]-1,+a[2]);}
   function diff(a,b){return Math.round((a-b)/DAY);}
   var PROGS=[
-    {name:'PMT299 Hành trình săn kho báu',short:'PMT299',aud:'retail',s:'2026-08-17',card:null},
-    {name:'PMT336 Halloween giveaway',short:'PMT336 Halloween',aud:'retail',s:'2026-10-21',card:null},
+    {name:'PMT299 Hành trình săn kho báu',short:'PMT299',aud:'retail',s:'2026-08-17',card:'c-pmt299'},
+    {name:'PMT336 Halloween giveaway',short:'PMT336 Halloween',aud:'retail',s:'2026-10-21',card:'c-pmt336'},
     {name:'Black Friday Power Play',short:'Black Friday',aud:'retail',s:'2026-11-16',card:'c-bf'},
     {name:'STAR Copy Reward',short:'STAR Copy',aud:'retail',s:'2026-11-16',card:'c-copy'},
     {name:'Partner Switch Bonus',short:'Partner Switch',aud:'ib',s:'2026-11-19',card:'c-psb'},
@@ -644,6 +701,41 @@ Và đây mới chỉ là khởi đầu. Team đang chuẩn bị thêm những c
   next.addEventListener('click',function(){if(idx<COUNT-1){idx++;render();}});
   sel.addEventListener('change',function(){idx=+sel.value;render();});
   render();
+
+  /* ---------- status filter ---------- */
+  var ST={live:'Đang chạy',soon:'Sắp chạy',end:'Đã kết thúc'};
+  var cards=[].slice.call(document.querySelectorAll('.card[id^="c-"]'));
+  cards.forEach(function(c){
+    var s=c.getAttribute('data-start'), e=c.getAttribute('data-end'), st='live';
+    if(s&&P(s)>today) st='soon'; else if(e&&P(e)<today) st='end';
+    c.setAttribute('data-status',st);
+    var chip=c.querySelector('.top .chip');
+    if(chip&&c.id!=='c-tp'){chip.className='chip '+st;chip.textContent=ST[st];}
+    if(st==='soon'){
+      var n=document.createElement('div');n.className='soon-note';
+      n.textContent='Sắp chạy: T&C có thể thay đổi, chưa nên gửi công khai chi tiết.';
+      c.querySelector('.top').insertAdjacentElement('afterend',n);
+    }
+  });
+  var fbtn=[].slice.call(document.querySelectorAll('#filters button'));
+  var fnote=document.getElementById('filter-note'), fempty=document.getElementById('filter-empty');
+  function applyFilter(f){
+    var shown=0;
+    cards.forEach(function(c){var ok=f==='all'||c.getAttribute('data-status')===f;c.hidden=!ok;if(ok)shown++;});
+    [].slice.call(document.querySelectorAll('h3.grp')).forEach(function(h){
+      var g=h.nextElementSibling; while(g&&!g.classList.contains('grid')) g=g.nextElementSibling;
+      h.hidden=!g||!g.querySelector('.card:not([hidden])');
+    });
+    fbtn.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-f')===f?'true':'false');});
+    fnote.hidden=f!=='soon'; fempty.hidden=shown>0;
+  }
+  fbtn.forEach(function(b){
+    var f=b.getAttribute('data-f');
+    if(f!=='all'){var n=cards.filter(function(c){return c.getAttribute('data-status')===f;}).length; b.textContent+=' ('+n+')';}
+    b.addEventListener('click',function(){applyFilter(f);});
+  });
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a.st'); if(a) applyFilter('all');});
+  applyFilter('all');
 
   /* ---------- copy buttons ---------- */
   function fallbackCopy(el){
