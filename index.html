@@ -164,7 +164,15 @@ h2{font-size:24px;text-transform:uppercase;letter-spacing:.02em}
 .chip{border-radius:5px}
 .card,.card.ib{border-radius:16px;border:1px solid rgba(22,233,215,.55);border-left:1px solid rgba(22,233,215,.55);background:linear-gradient(160deg,#fff 0%,#f6faff 100%);box-shadow:0 2px 14px rgba(13,13,75,.06)}
 .card:target{box-shadow:0 0 0 3px var(--accent)}
-.card h3{font-size:18px}
+.card{padding:24px 26px;gap:18px}
+.card h3{font-size:22px;font-weight:700;line-height:1.3}
+.card .top{gap:14px}
+.card dl{grid-template-columns:104px 1fr;gap:12px 14px;font-size:15px;line-height:1.7}
+.card dt{font-weight:500}
+.card .pitch{padding:14px 18px;font-size:15px;line-height:1.65}
+.card .mech{padding:16px 18px;gap:12px}
+.card .more>summary{padding:13px 14px}
+.card .miss{line-height:1.6}
 .lk{border-radius:6px;border-color:var(--navy);color:var(--navy)}
 .lk:hover,.lk:focus-visible{background:var(--navy);color:var(--accent)}
 .more{border-radius:8px}
@@ -190,7 +198,31 @@ header{min-height:300px;justify-content:center}
 .card::after,.tpl-card::after{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:2px;pointer-events:none;background:conic-gradient(from var(--a),transparent 0 62%,rgba(22,233,215,.15) 70%,var(--accent) 94%,#fff 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);opacity:0;transition:opacity .25s}
 .card:hover::after,.tpl-card:hover::after{opacity:1;animation:run 4s linear infinite}
 .card,.tpl-card{transition:background .25s,box-shadow .25s}
-.card:hover,.tpl-card:hover{background:linear-gradient(160deg,#eefaff 0%,#e3f1ff 100%);box-shadow:0 4px 18px rgba(0,71,187,.12)}
+.tpl-card:hover{background:linear-gradient(160deg,#eefaff 0%,#e3f1ff 100%);box-shadow:0 4px 18px rgba(0,71,187,.12)}
+.card:hover{background:var(--navy);color:#fff;box-shadow:0 8px 24px rgba(13,13,75,.28)}
+.card:hover :where(h3,dd,li,p,div,strong,b){color:#fff}
+.card:hover :where(dt,.miss,.card-sub,small){color:#9FB0D8}
+.card:hover .pitch{background:rgba(22,233,215,.14)}
+.card:hover table.tier{border-color:var(--blue-mid);background:#FAFBFF}
+.card:hover table.tier th{background:var(--navy);color:var(--accent)}
+.card:hover table.tier th:first-child{background:#fff}
+.card:hover table.tier td{background:#FAFBFF;color:var(--navy);border-top-color:var(--blue-mid)}
+.card:hover table.tier td:first-child{background:var(--blue-soft);color:var(--muted)}
+.card:hover table.tier tr.rw td{color:var(--navy)}
+.card:hover .small{color:#9FB0D8}
+.card:hover .mech{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.2)}
+.card:hover .mech-n{background:var(--accent);color:var(--navy)}
+.card:hover .more{background:var(--accent);border-color:var(--accent)}
+.card:hover .more>summary{color:var(--navy)}
+.card:hover .more>summary:hover{background:rgba(255,255,255,.25)}
+.card:hover .more[open]>summary{border-bottom-color:rgba(13,13,75,.25)}
+.card:hover .more[open]{background:rgba(255,255,255,.07);border-color:var(--accent)}
+.card:hover .more[open]>summary{background:var(--accent);color:var(--navy)}
+.card:hover .soon-note,.card:hover .filter-note{background:var(--hold-bg);color:var(--hold)}
+.card:hover .lk{color:var(--accent);border-color:var(--accent);background:transparent}
+.card:hover .lk:hover{background:var(--accent);color:var(--navy)}
+.card:hover .lk.off{color:#9FB0D8;border-color:rgba(255,255,255,.3)}
+.card:hover a{color:var(--accent)}
 @keyframes run{to{--a:360deg}}
 @media (prefers-reduced-motion:reduce){.card::after,.tpl-card::after{animation:none}}
 </style>
