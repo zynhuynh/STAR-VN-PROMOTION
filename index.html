@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
 <title>Vietnam Promotion Sales Kit</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -69,6 +68,29 @@ a.st:hover,a.st:focus-visible{filter:brightness(1.2);outline:none}
 .cal-legend{display:flex;flex-wrap:wrap;gap:6px 14px;padding:8px 12px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);background:#fff}
 .cal-legend i{display:inline-block;width:12px;height:9px;border-radius:3px;margin-right:5px;vertical-align:-1px}
 .cal-note{margin:10px 2px 0;font-size:13px;color:var(--muted)}
+.miss{margin:-2px 0 0;font-size:12px;color:#7B808A}
+.mech{background:var(--blue-soft);border:1px solid var(--blue-mid);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:8px}
+.mech-h{font-weight:800;font-size:14px;display:flex;align-items:center;gap:8px}
+.mech-n{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:999px;background:var(--navy);color:#fff;font-size:12px}
+.mech dl{grid-template-columns:96px 1fr}
+table.tier{width:100%;border-collapse:collapse;font-size:13.5px;border:1px solid var(--blue-mid);border-radius:8px;overflow:hidden}
+table.tier th{background:var(--navy);color:#fff;padding:7px 10px;text-align:center;font-weight:800}
+table.tier th:first-child{background:#fff}
+table.tier td{padding:7px 10px;border-top:1px solid var(--blue-mid);text-align:center}
+table.tier td:first-child{text-align:left;color:var(--muted);font-weight:600;background:var(--blue-soft)}
+table.tier tr.rw td{font-weight:800;color:var(--navy)}
+table.tier tr.rw td:first-child{color:var(--navy)}
+ul.struct,ul.struct ul{margin:4px 0 0;padding-left:18px}
+ul.struct>li{margin-bottom:4px}
+.more{border:1px solid var(--blue-mid);border-radius:10px;background:#fff}
+.more>summary{list-style:none;cursor:pointer;padding:9px 14px;font-size:12.5px;font-weight:800;letter-spacing:.06em;color:var(--blue);text-align:center;border-radius:10px}
+.more>summary::-webkit-details-marker{display:none}
+.more>summary:hover,.more>summary:focus-visible{background:var(--blue-soft);outline:none}
+.more .s-close{display:none}
+.more[open] .s-open{display:none}
+.more[open] .s-close{display:inline}
+.more[open]>summary{border-bottom:1px solid var(--blue-mid);border-radius:10px 10px 0 0}
+.more>.mech{margin:10px}
 
 /* cards */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:14px}
@@ -111,26 +133,16 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
   <h1>Vietnam Promotion Sales Kit</h1>
   <div class="meta">
     <span><b>Cập nhật:</b> 17/11/2026</span>
-    <span><b>Dùng cho:</b> BD và Sales</span>
+    <span><b>Dùng cho:</b> BD và Sales, nội bộ</span>
   </div>
   <nav aria-label="Mục lục">
     <a href="#lich">Calendar</a>
     <a href="#retail">Retail</a>
     <a href="#ib">IB</a>
     <a href="#template">Template bài đăng</a>
+    <a class="src" href="https://hff6qb5z7p3.sg.larksuite.com/docx/RjkTdpMbFox8WfxC3xJl1NIHg4f" target="_blank" rel="noopener">Bảng tổng hợp đầy đủ (Lark)</a>
   </nav>
 </header>
-
-<section id="luu-y" style="margin-top:20px">
-  <div class="box">
-    <b>Đọc trước khi đăng bài</b>
-    <ul>
-      <li>Chỉ đăng công khai chương trình đang chạy. Chương trình sắp chạy chỉ trao đổi nội bộ hoặc gửi riêng cho IB mục tiêu.</li>
-      <li>Dùng đúng số liệu trong T&amp;C. Không hứa lợi nhuận, không so sánh với broker khác.</li>
-      <li>Template là bản nháp. Gửi Marketing xem wording trước khi đăng lần đầu.</li>
-    </ul>
-  </div>
-</section>
 
 <section id="lich">
   <div class="sec-head"><span class="tag">01</span><h2>Calendar</h2></div>
@@ -151,6 +163,7 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
       <span>Chỉ hiển thị ngày bắt đầu của mỗi chương trình</span>
     </div>
   </div>
+  <p class="cal-note">Chưa có ngày nên chưa tô: Red Envelope Tết, Quà năm mới 2027 (IB và VIP), IB Loyalty Program, KOL programs và Refer a Friend.</p>
 </section>
 
 <section id="retail">
@@ -161,48 +174,101 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
     <article class="card" id="c-bf">
       <div class="top"><div><h3>Black Friday Power Play</h3><div class="code">PMT340 · Global adapt</div></div><span class="chip live">Giveaway đang chạy</span></div>
       <dl>
-        <dt>Thời gian</dt><dd>Giveaway 16/11 đến 04/12. Chương trình chính 23/11 đến 04/12/2026 (giờ server).</dd>
-        <dt>Ai tham gia</dt><dd>Khách mới và cũ, mỗi User ID một tài khoản. Không áp dụng Cent, STAR Copy, PAMM, MAM.</dd>
-        <dt>Cách tham gia</dt><dd>Opt-in trên Client Portal hoặc app STARTRADER. Chỉ volume sau khi opt-in được tính.</dd>
-        <dt>Thưởng</dt><dd><b>Lucky Draw:</b> 100 người thắng, mỗi người coupon credit USD 20. Cần nạp ròng một lần từ USD 500, mỗi USD 400K notional được 1 ticket.<br><b>Top Prize:</b> nạp ròng tích lũy từ USD 1.000 và volume từ USD 2M notional, xếp theo volume: MacBook Air, Leica D-Lux 8, Nintendo Switch 2, Ray-Ban Meta Gen 2.<br><b>Giveaway mạng xã hội:</b> 5 phần USD 50 credit cho Việt Nam.</dd>
+        <dt>Cấu trúc</dt><dd>Gồm 2 cơ chế:<ul class="struct"><li><b>Cơ chế chính: Trading</b>, gồm 2 phần:<ul><li>Lottery ticket</li><li>Đua top trading</li></ul></li><li><b>Cơ chế phụ: Social giveaway</b></li></ul></dd>
+        <dt>Thời gian</dt><dd>Cơ chế chính 23/11 đến 04/12/2026 theo giờ server. Social giveaway 16/11 đến 04/12.</dd>
+        <dt>Thưởng</dt><dd>100 coupon credit USD 20, 4 giải hiện vật (MacBook Air, Leica D-Lux 8, Nintendo Switch 2, Ray-Ban Meta Gen 2), 5 phần giveaway USD 50.</dd>
+        <dt>Ai tham gia</dt><dd>Khách mới và cũ, opt-in trên Client Portal hoặc app STARTRADER.</dd>
       </dl>
+      <details class="more">
+      <summary><span class="s-open">XEM THÊM</span><span class="s-close">THU GỌN</span></summary>
+      <div class="mech">
+        <div class="mech-h"><span class="mech-n">1</span> Cơ chế phụ: Social giveaway</div>
+        <dl>
+          <dt>Thời gian</dt><dd>16/11 đến 04/12/2026</dd>
+          <dt>Cơ chế</dt><dd>Giveaway trên mạng xã hội, áp dụng cho khách Việt Nam. Chi tiết xem T&amp;C Social Give Away bên dưới.</dd>
+          <dt>Thưởng</dt><dd>5 phần credit, mỗi phần USD 50.</dd>
+        </dl>
+      </div>
+      <div class="mech">
+        <div class="mech-h"><span class="mech-n">2</span> Cơ chế chính: Trading</div>
+        <dl>
+          <dt>Thời gian</dt><dd>23/11 đến 04/12/2026, theo giờ server</dd>
+          <dt>Cách tham gia</dt><dd>Opt-in một lần trên Client Portal hoặc app STARTRADER, sau đó giao dịch bình thường. Chỉ volume sau khi opt-in được tính. Một lần opt-in là tham gia được cả lottery và đua top trading.</dd>
+          <dt>Phần A: Lottery</dt><dd><b>Cơ chế:</b> cần đồng thời nạp ròng một lần từ USD 500, duy trì đến hết chương trình, và giao dịch tối thiểu USD 400K notional. Nạp ròng được 1 ticket, sau đó mỗi USD 400K notional được thêm 1 ticket. Ví dụ nạp USD 500 và giao dịch USD 1,3M được 4 ticket.<br><b>Thưởng:</b> bốc thăm ngẫu nhiên 100 người thắng, mỗi người 1 coupon credit USD 20. Mỗi khách nhận tối đa 1 giải.</dd>
+          <dt>Phần B: Đua top trading</dt><dd><b>Cơ chế:</b> nạp ròng tích lũy từ USD 1.000, cộng dồn được nhiều lần nạp và duy trì đến hết chương trình, đồng thời đạt volume từ USD 2M notional. Xếp hạng theo volume, bằng volume thì người đạt mốc sớm hơn xếp trên.<br><b>Thưởng:</b> hạng 1 MacBook Air, hạng 2 Leica D-Lux 8, hạng 3 Nintendo Switch 2, hạng 4 Ray-Ban Meta Gen 2. Mỗi khách nhận tối đa 1 giải và vẫn được tham gia lottery.</dd>
+          <dt>Lưu ý chung</dt><dd>Sản phẩm hợp lệ: Forex, Vàng, Bạc, Dầu, BTC. Chỉ tính lệnh đã đóng và giữ tối thiểu 10 phút. Công bố kết quả ngày 11/12/2026. Coupon credit được cộng trong 24 giờ và có hiệu lực 30 ngày.</dd>
+          <dt>Loại trừ</dt><dd>Mỗi User ID một tài khoản. Không áp dụng tài khoản Cent, STAR Copy, PAMM, MAM.</dd>
+        </dl>
+      </div>
+      </details>
       <div class="pitch">Một lần opt-in, hai cơ hội: bốc thăm cho nhiều người, giải lớn cho người giao dịch nhiều nhất.</div>
       <div class="small">Khách rút hoặc chuyển tiền làm net deposit xuống dưới ngưỡng có thể bị loại. Nhắc khách giữ vốn đến hết chương trình.</div>
       <div class="links">
+        <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/UjTnsBsZ2heWSzt8uwLljSTHgWf?sheet=aXTlBi" target="_blank" rel="noopener">IMC plan</a>
         <a class="lk" href="https://www.startradervn.net/pdf/pmt340-black-friday-giveaway-social-media-tnc-vn.pdf" target="_blank" rel="noopener">T&amp;C Social Give Away</a>
       </div>
+      <div class="small miss">Chưa có link: T&amp;C Promotion, Material</div>
     </article>
 
     <article class="card" id="c-copy">
       <div class="top"><div><h3>STAR Copy Reward</h3><div class="code">PMT310 · Global adapt</div></div><span class="chip live">Đang chạy</span></div>
       <dl>
-        <dt>Thời gian</dt><dd>16/11/2026 đến 21/01/2027 (khoảng 10 tuần)</dd>
-        <dt>Ai tham gia</dt><dd>Khách CPA/Retail STAR Copy được mời. Không cần opt-in.</dd>
-        <dt>Điều kiện</dt><dd>Nạp từ USD 100 vào tài khoản STAR Copy và copy trade ít nhất 1 lot chuẩn trong cùng tuần.</dd>
-        <dt>Thưởng</dt><dd>USD 5 cho mỗi tuần đủ điều kiện, tối đa 10 voucher (USD 50).</dd>
+        <dt>Thời gian</dt><dd>16/11/2026 đến 21/01/2027 theo giờ server, khoảng 10 tuần. Mỗi tuần là một kỳ xét riêng.</dd>
+        <dt>Thưởng</dt><dd>Phiếu hoàn tiền cố định USD 5 mỗi tuần đủ điều kiện, tối đa 10 phiếu, tương đương USD 50.</dd>
+        <dt>Ai tham gia</dt><dd>Khách CPA và khách cá nhân đủ điều kiện, đang dùng STAR Copy và được mời.</dd>
       </dl>
+      <details class="more">
+      <summary><span class="s-open">XEM THÊM</span><span class="s-close">THU GỌN</span></summary>
+      <div class="mech">
+        <dl>
+          <dt>Cơ chế</dt><dd>Cả 2 điều kiện phải đạt trong cùng một tuần!</dd>
+          <dt>Điều kiện nạp</dt><dd>Tối thiểu USD 100 vào chính tài khoản STAR Copy.</dd>
+          <dt>Điều kiện giao dịch</dt><dd>Copy trade tối thiểu 1 lot chuẩn từ các lệnh đã đóng, giữ mỗi lệnh ít nhất 10 phút. Sản phẩm hợp lệ gồm Forex, Vàng, Bạc, Dầu, BTC.</dd>
+          <dt>Nhận thưởng</dt><dd>Phiếu được cộng vào tài khoản STAR Copy trong khoảng 3 ngày làm việc sau khi hết tuần. Thưởng ghi có dạng tiền mặt và rút được.</dd>
+          <dt>Ví dụ</dt><dd>Tuần 16/11 đến 22/11, nạp USD 100 và hoàn tất 1 lot chuẩn thì nhận phiếu USD 5.</dd>
+          <dt>Lưu ý</dt><dd>Không dùng nhiều tài khoản, không copy giống nhau trên nhiều tài khoản để tạo volume ảo.</dd>
+        </dl>
+      </div>
+      </details>
       <div class="pitch">Nạp và copy đều đặn mỗi tuần, nhận thêm USD 5 mỗi tuần.</div>
       <div class="links">
+        <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/KHX6sR1DBhKOfftSb26ldgH6gWd?sheet=0SdwIE" target="_blank" rel="noopener">IMC plan</a>
         <a class="lk" href="https://www.startradervn.net/pdf/pmt310-starcopy-reward-terms-and-conditions-vn.pdf" target="_blank" rel="noopener">T&amp;C</a>
         <a class="lk" href="https://www.startradervn.net/starcopy-reward/" target="_blank" rel="noopener">Landing page</a>
+        <a class="lk" href="https://www.canva.com/design/DAHbEGd5jdA/Mbi4u_hwYca_IWu7Vzp9TA/edit" target="_blank" rel="noopener">Material: One-page (Canva)</a>
       </div>
     </article>
-
-
 
     <article class="card" id="c-gtr">
       <div class="top"><div><h3>Golden Ticket Rush</h3><div class="code">Chưa có mã · Vietnam</div></div><span class="chip soon">Sắp chạy</span></div>
       <dl>
-        <dt>Thời gian</dt><dd>07/12 đến 25/12/2026 (15 ngày)</dd>
-        <dt>Điều kiện</dt><dd>Nạp ròng từ USD 200. Mỗi 0,5 lot GOLD giao dịch được 1 ticket.</dd>
-        <dt>Thưởng</dt><dd>101 giải, tổng giá trị khoảng USD 2.815.</dd>
-        <dt>Mục tiêu</dt><dd>Tăng volume GOLD.</dd>
+        <dt>Thời gian</dt><dd>07/12 đến 25/12/2026, 15 ngày.</dd>
+        <dt>Thưởng</dt><dd>101 giải, tổng giá trị khoảng USD 2.815, gồm 1 iPhone 18 Pro Max, 5 voucher USD 50 và 95 voucher USD 10.</dd>
+        <dt>Ai tham gia</dt><dd>Khách có tài khoản live STP, ECN hoặc Standard, cả khách mới và cũ.</dd>
       </dl>
+      <details class="more">
+      <summary><span class="s-open">XEM THÊM</span><span class="s-close">THU GỌN</span></summary>
+      <div class="mech">
+        <dl>
+          <dt>Cơ chế</dt><dd>Nạp ròng và trade GOLD để tích ticket, và tham gia quay thưởng.</dd>
+          <dt>Quy trình</dt><dd>Opt-in, nạp và giao dịch GOLD, tích ticket, rút thăm, công bố kết quả.</dd>
+          <dt>Điều kiện nạp</dt><dd>Nạp ròng trong thời gian chương trình từ USD 200 thì volume được tính ra ticket. Nạp ròng từ USD 500 thì đủ điều kiện thêm giải iPhone, và cần giao dịch ít nhất 2 lot.</dd>
+          <dt>Cách tích ticket</dt><dd>Mỗi 0,5 lot GOLD, khoảng USD 200.000 notional, được 1 ticket. Không giới hạn số ticket.</dd>
+          <dt>Sản phẩm</dt><dd>Chỉ XAUUSD và XAUUSD.m.</dd>
+          <dt>Điều kiện lệnh</dt><dd>Chỉ tính lệnh đã đóng trong thời gian chương trình, giữ mỗi lệnh ít nhất 10 phút.</dd>
+          <dt>Rút thăm</dt><dd>Ngẫu nhiên từ tất cả ticket hợp lệ. Mỗi tài khoản nhận tối đa 1 giải.</dd>
+          <dt>Thưởng chi tiết</dt><dd><ul class="struct"><li>Giải đặc biệt: 1 iPhone 18 Pro Max Burgundy 256GB, trị giá USD 1.615.</li><li>Tier 2: 5 voucher tiền mặt, mỗi voucher USD 50.</li><li>Tier 3: 95 voucher tiền mặt, mỗi voucher USD 10.</li><li>Voucher được gửi thẳng vào tài khoản STARTRADER.</li></ul></dd>
+          <dt>Loại trừ</dt><dd>Tài khoản Cent, Cryptocurrency, PAMM, MAM.</dd>
+          <dt>Lưu ý</dt><dd>Không tính lệnh hedge, churn hay thao túng. Nhiều tài khoản cùng IP để cày ticket bị cấm. STARTRADER có quyền hủy ticket, loại người tham gia hoặc thu hồi thưởng nếu phát hiện vi phạm.</dd>
+        </dl>
+      </div>
+      </details>
       <div class="pitch">Giao dịch GOLD nhiều hơn, tích nhiều ticket hơn.</div>
       <div class="small">Chưa công khai.</div>
       <div class="links">
         <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/OnR1sygQAhJM9PtXyeMlssDHgge?sheet=0yVNtp" target="_blank" rel="noopener">IMC plan</a>
       </div>
+      <div class="small miss">Chưa có link: T&amp;C, Material</div>
     </article>
 
     <article class="card" id="c-loy">
@@ -216,6 +282,7 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
         <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/FH4BsI2gphLZHpt3vaGlMWGQgLh?sheet=bbuyK2" target="_blank" rel="noopener">IMC plan</a>
         <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/drive/folder/QDWbfnnD6lgR91d47nSlGOD3g9g" target="_blank" rel="noopener">Materials (folder Lark)</a>
       </div>
+      <div class="small miss">Chưa có link: T&amp;C</div>
     </article>
 
     <article class="card" id="c-vps">
@@ -226,9 +293,12 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
       </dl>
       <div class="pitch">Giao dịch tự động, VPS do STARTRADER hỗ trợ chi phí.</div>
       <div class="links">
+        <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/APatsOxSUheMkktFjojlhIyDg4w?sheet=RD9u87" target="_blank" rel="noopener">IMC plan</a>
         <a class="lk" href="https://www.startradervn.net/pdf/pmt078-vps-reimbursement-terms-and-conditions-vn.pdf" target="_blank" rel="noopener">T&amp;C</a>
         <a class="lk" href="https://www.startradervn.net/vps/" target="_blank" rel="noopener">Landing page</a>
+        <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/Ljlcsyw31hnvuPtozk2lKTYcgMg" target="_blank" rel="noopener">Social post: PMT078 VPS Reimbursement - Material</a>
       </div>
+      <div class="small miss">Chưa có link: One page</div>
     </article>
 
     <article class="card" id="c-swap">
@@ -237,6 +307,10 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
         <dt>Cách đăng ký</dt><dd>Đăng ký qua Sales PIC.</dd>
         <dt>Dành cho</dt><dd>Khách có nhu cầu tài khoản không tính swap. Hỏi Marketing điều kiện chi tiết trước khi cam kết với khách.</dd>
       </dl>
+      <div class="links">
+        <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/LaUKsEPiYhLVDstWOislQkEPged?sheet=2xUCZU" target="_blank" rel="noopener">IMC plan</a>
+      </div>
+      <div class="small miss">Chưa có link: T&amp;C, Material</div>
     </article>
   </div>
 </section>
@@ -249,21 +323,42 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
     <article class="card ib" id="c-psb">
       <div class="top"><div><h3>Partner Switch Bonus</h3><div class="code">PMT326 · IB Bonus</div></div><span class="chip soon">Từ 19/11</span></div>
       <dl>
-        <dt>Dành cho</dt><dd>IB chuyển về STARTRADER và duy trì hoạt động qua 6 kỳ theo tháng.</dd>
-        <dt>Tier 1</dt><dd>USD 12.000 mỗi kỳ khi đạt 2 trong 3: 40 NQC, ND USD 150K, volume USD 100M.</dd>
-        <dt>Tier 2</dt><dd>USD 6.000 mỗi kỳ khi đạt 2 trong 3: 20 NQC, ND USD 75K, volume USD 50M.</dd>
-        <dt>Tối đa</dt><dd>USD 72.000</dd>
-        <dt>NQC</dt><dd>Khách nạp ròng từ USD 500, giao dịch ít nhất 2 lot, giữ lệnh ít nhất 10 phút.</dd>
+        <dt>Thời gian</dt><dd>Từ 19/11/2026. Mỗi đối tác tham gia 6 kỳ, mỗi kỳ là 1 tháng.</dd>
+        <dt>Dành cho</dt><dd>IB và CPA Affiliate mới, chuyển từ broker khác sang STARTRADER.</dd>
+        <dt>Cơ chế</dt><dd>IB đạt 2 trong 3 tiêu chí của cùng một tier trong kỳ thì nhận thưởng của tier đó. Không cần đạt cả 3.</dd>
       </dl>
+      <table class="tier">
+        <thead><tr><th></th><th>Tier 1</th><th>Tier 2</th></tr></thead>
+        <tbody>
+          <tr><td>Khách hàng mới hợp lệ</td><td>40</td><td>20</td></tr>
+          <tr><td>Nạp ròng</td><td>USD 150K</td><td>USD 75K</td></tr>
+          <tr><td>Volume</td><td>USD 100M</td><td>USD 50M</td></tr>
+          <tr class="rw"><td>Thưởng mỗi kỳ</td><td>USD 12.000</td><td>USD 6.000</td></tr>
+        </tbody>
+      </table>
+      <div class="small">Tối đa USD 72.000 trong 6 kỳ. Đạt cả hai tier trong cùng kỳ thì chỉ nhận Tier 1.</div>
+      <details class="more">
+      <summary><span class="s-open">XEM THÊM</span><span class="s-close">THU GỌN</span></summary>
+      <div class="mech">
+        <dl>
+          <dt>Khách hàng mới hợp lệ</dt><dd>Khách do đối tác trực tiếp giới thiệu, được duyệt tài khoản, nạp ròng từ USD 500, giao dịch ít nhất 2 lot chuẩn từ lệnh đã đóng, mỗi lệnh giữ ít nhất 10 phút. Tất cả phải đạt trong cùng một kỳ. Sản phẩm hợp lệ: Forex, Dầu, Vàng, Bạc, BTCUSD.</dd>
+          <dt>Điều kiện tham gia</dt><dd>Được STARTRADER duyệt là đối tác mới, đã hoặc đang hợp tác với broker khác. Đăng ký tham gia trong vòng 1 tháng kể từ ngày được duyệt. Chỉ tính khi STARTRADER gửi email xác nhận.</dd>
+          <dt>Kỳ đánh giá</dt><dd>Mỗi kỳ là 1 tháng dương lịch, 6 kỳ liên tiếp, giờ UTC. Đăng ký đến hết ngày 15 thì tháng đó là Kỳ 1. Đăng ký sau ngày 15 thì tháng sau là Kỳ 1. Trong Kỳ 1 chỉ tính hoạt động từ ngày đăng ký.</dd>
+          <dt>Tổng nạp ròng</dt><dd>Tính trên khách giới thiệu trực tiếp, gồm cả khách của các tháng trước. Không tính chuyển nội bộ, hoàn phí, hoa hồng, thưởng hay tín dụng. Nếu nạp ròng của kỳ bị âm, khoản âm chuyển sang kỳ sau để khấu trừ.</dd>
+          <dt>Ghi nhận</dt><dd>Chỉ tính khách đối tác trực tiếp giới thiệu. Hoạt động sub-IB và sub-affiliate không tính, trừ khi STARTRADER chấp thuận.</dd>
+          <dt>Chi trả</dt><dd>Xét thưởng sau mỗi kỳ, theo tier cao nhất đạt được. Ghi có trong 10 ngày làm việc kể từ cuối kỳ, vào tài khoản nhận hoàn phí hoặc hoa hồng do đối tác chỉ định. Số khách mới và volume không cộng dồn giữa các kỳ. Không đạt ở một kỳ không ảnh hưởng các kỳ còn lại.</dd>
+          <dt>Giới hạn</dt><dd>Mỗi đối tác tham gia 1 lần, tối đa 6 kỳ, tổng thưởng tối đa USD 72.000. Không áp dụng đồng thời với chương trình khác dành cho đối tác, gồm IB Sponsorship và IB Special Reward.</dd>
+          <dt>Ví dụ</dt><dd>Trong một kỳ đạt 42 khách mới hợp lệ, nạp ròng USD 120.000, volume USD 105M. Đạt 2 tiêu chí Tier 1 nên nhận USD 12.000.</dd>
+        </dl>
+      </div>
+      </details>
       <div class="pitch">Chuyển nhóm khách về STARTRADER, nhận thưởng theo từng kỳ khi khách thật sự giao dịch.</div>
-      <div class="small">Chỉ khách giới thiệu trực tiếp được tính. Hoạt động sub-IB không tính trừ khi được duyệt. IB phải opt-in trong 1 tháng kể từ ngày được duyệt làm đối tác. Không cộng với chương trình đối tác khác.</div>
       <div class="links">
         <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/Zn0RsCctKhv2sltRVF6lXnXNgWb?sheet=mQL9je" target="_blank" rel="noopener">IMC plan</a>
-        <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/drive/folder/TrH6fVeApldjFFdGRSylSJRGgHe" target="_blank" rel="noopener">Materials (folder Lark)</a>
         <a class="lk" href="https://www.startradervn.net/partner-switch-bonus/" target="_blank" rel="noopener">Landing page &amp; T&amp;C</a>
+        <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/drive/folder/TrH6fVeApldjFFdGRSylSJRGgHe" target="_blank" rel="noopener">Materials (folder Lark)</a>
       </div>
     </article>
-
 
     <article class="card ib" id="c-tp">
       <div class="top"><div><h3>Trusted Partners</h3><div class="code">Offline · Premium gift</div></div><span class="chip hold">Chờ duyệt</span></div>
@@ -277,6 +372,7 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
       <div class="links">
         <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/FQadsKzGwhzfWMtgzRIlMtTtgvg?sheet=xTO4V3" target="_blank" rel="noopener">IMC plan</a>
       </div>
+      <div class="small miss">Chưa có link: T&amp;C, Material</div>
     </article>
 
     <article class="card ib" id="c-mib">
@@ -285,6 +381,8 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
         <dt>Dành cho</dt><dd>MIB phát triển mạng lưới IB và đạt kết quả kinh doanh theo tiêu chí.</dd>
         <dt>Tài liệu</dt><dd>MIB Bonus Policy 2026 (PDF, dùng làm T&amp;C và Sale Deck)</dd>
       </dl>
+      
+      <div class="small miss">Chưa có link: IMC plan, T&amp;C, Sale Deck</div>
     </article>
 
     <article class="card ib" id="c-gifts">
@@ -297,8 +395,8 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
       <div class="links">
         <a class="lk" href="https://hff6qb5z7p3.sg.larksuite.com/sheets/L5tosAIe8hgddMtv8iOlZQKJgjd" target="_blank" rel="noopener">IMC plan</a>
       </div>
+      <div class="small miss">Chưa có link: T&amp;C, Material</div>
     </article>
-
   </div>
 </section>
 
@@ -308,85 +406,105 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
   <div class="tpl-grid">
 
     <div class="tpl-card">
-      <div class="tpl-head"><h3>Black Friday Power Play</h3><div class="tpl-tags"><span class="chip live">Retail</span></div></div>
-<pre class="tpl" id="t1">BLACK FRIDAY POWER PLAY cùng STARTRADER
+      <div class="tpl-head"><h3>Black Friday Power Play</h3><div class="tpl-tags"><span class="chip live">Retail</span><span class="chip hold">Chờ Compliance</span></div></div>
+<pre class="tpl" id="t1">BLACK FRIDAY POWER PLAY
+Thời gian: từ 23/11 đến 04/12/2026 theo giờ server
 
-Từ 23/11 đến 04/12/2026, giao dịch và có cơ hội nhận:
-• Lucky Draw: 100 phần quà, mỗi phần là coupon credit USD 20
-• Top Prize: MacBook Air, Leica D-Lux 8, Nintendo Switch 2, Ray-Ban Meta Gen 2 cho các tài khoản có volume cao nhất
+Cơ cấu chương trình gồm:
+• Lucky Draw: 100 người thắng, mỗi người nhận coupon credit USD 20. Nạp ròng một lần từ USD 500 và giao dịch từ USD 400K notional. Nạp ròng được 1 ticket, mỗi USD 400K notional được thêm 1 ticket.
+• Top Prize: nạp ròng tích lũy từ USD 1.000 và đạt volume từ USD 2M notional. Xếp hạng theo volume: hạng 1 MacBook Air, hạng 2 Leica D-Lux 8, hạng 3 Nintendo Switch 2, hạng 4 Ray-Ban Meta Gen 2.
+• Công bố kết quả ngày 11/12/2026.
+• Cách tham gia: opt-in trên Client Portal hoặc app STARTRADER. Chỉ volume sau khi opt-in được tính.
+• Mỗi User ID một tài khoản. Không áp dụng cho tài khoản Cent, STAR Copy, PAMM, MAM.
 
-Cách tham gia: opt-in trên Client Portal hoặc app STARTRADER, sau đó giao dịch bình thường. Chỉ volume sau khi opt-in thành công được tính.
-
-Điều kiện chi tiết xem tại T&C: [link T&C]
-Cần hỗ trợ opt-in, nhắn [tên Sales] nhé.
-
-Giao dịch CFD có rủi ro. Chương trình áp dụng theo T&C.</pre>
+Điều kiện chi tiết xem tại T&amp;C: [link T&amp;C]
+Cần hỗ trợ opt-in, nhắn [tên Sales] nhé.</pre>
       <button class="copy" data-target="t1" type="button">Copy bài</button>
     </div>
 
     <div class="tpl-card">
-      <div class="tpl-head"><h3>Nhắc ngưỡng cuối chương trình</h3><div class="tpl-tags"><span class="chip live">Retail</span></div></div>
+      <div class="tpl-head"><h3>Nhắc ngưỡng cuối chương trình</h3><div class="tpl-tags"><span class="chip live">Retail</span><span class="chip hold">Chờ Compliance</span></div></div>
 <pre class="tpl" id="t2">Còn [số] ngày cuối của Black Friday Power Play.
 
 Để giữ cơ hội nhận quà, anh/chị lưu ý:
 • Đã opt-in chưa? Chỉ volume sau khi opt-in được tính.
 • Giữ net deposit không xuống dưới ngưỡng yêu cầu đến hết 04/12.
 
-Em hỗ trợ kiểm tra tài khoản giúp anh/chị: [tên Sales] - [liên hệ]
-
-Giao dịch CFD có rủi ro.</pre>
+Điều kiện chi tiết xem tại T&amp;C: [link T&amp;C]
+Cần hỗ trợ kiểm tra tài khoản, nhắn [tên Sales] nhé.</pre>
       <button class="copy" data-target="t2" type="button">Copy bài</button>
     </div>
 
     <div class="tpl-card">
-      <div class="tpl-head"><h3>STAR Copy Reward</h3><div class="tpl-tags"><span class="chip live">Retail</span></div></div>
-<pre class="tpl" id="t3">STAR Copy Reward: copy đều mỗi tuần, nhận thêm USD 5 mỗi tuần
+      <div class="tpl-head"><h3>STAR Copy Reward</h3><div class="tpl-tags"><span class="chip live">Retail</span><span class="chip hold">Chờ xác nhận cơ chế</span></div></div>
+<pre class="tpl" id="t3">STAR COPY REWARD
+Thời gian: từ 16/11/2026 đến 21/01/2027, khoảng 10 tuần
 
-Từ 16/11/2026 đến 21/01/2027, khách STAR Copy được mời tham gia nhận voucher USD 5 cho mỗi tuần đủ điều kiện:
-• Nạp từ USD 100 vào tài khoản STAR Copy
-• Copy trade ít nhất 1 lot chuẩn trong cùng tuần
+Cơ cấu chương trình gồm:
+• Dành cho khách CPA hoặc Retail STAR Copy được mời. Không cần opt-in.
+• Điều kiện mỗi tuần: nạp từ USD 100 vào tài khoản STAR Copy và copy trade ít nhất 1 lot chuẩn trong cùng tuần.
+• Thưởng: voucher USD 5 cho mỗi tuần đủ điều kiện, tối đa 10 voucher, tương đương USD 50.
 
-Tối đa 10 voucher (USD 50). Không cần opt-in.
-
-Chi tiết xem tại: https://www.startradervn.net/starcopy-reward/
-T&C: https://www.startradervn.net/pdf/pmt310-starcopy-reward-terms-and-conditions-vn.pdf
-Giao dịch CFD có rủi ro.</pre>
+Điều kiện chi tiết xem tại T&amp;C: https://www.startradervn.net/pdf/pmt310-starcopy-reward-terms-and-conditions-vn.pdf
+Thông tin chương trình: https://www.startradervn.net/starcopy-reward/
+Cần hỗ trợ, nhắn [tên Sales] nhé.</pre>
       <button class="copy" data-target="t3" type="button">Copy bài</button>
     </div>
 
     <div class="tpl-card">
       <div class="tpl-head"><h3>VPS Reimbursement</h3><div class="tpl-tags"><span class="chip live">Retail</span><span class="chip live">Đang chạy</span></div></div>
-<pre class="tpl" id="t4">Giao dịch tự động với VPS, STARTRADER hỗ trợ chi phí
+<pre class="tpl" id="t4">VPS REIMBURSEMENT
+Thời gian: chạy liên tục, không có ngày kết thúc
 
-Khách đạt yêu cầu nạp tiền và volume được hoàn chi phí VPS tối đa USD 30 mỗi tháng.
+Cơ cấu chương trình gồm:
+• Hoàn chi phí VPS tối đa USD 30 mỗi tháng.
+• Điều kiện: đạt yêu cầu nạp tiền và volume giao dịch theo T&amp;C.
 
-Xem điều kiện và đăng ký: https://www.startradervn.net/vps/
-Cần hỗ trợ, nhắn [tên Sales].
-
-Giao dịch CFD có rủi ro.</pre>
+Điều kiện chi tiết xem tại T&amp;C: https://www.startradervn.net/pdf/pmt078-vps-reimbursement-terms-and-conditions-vn.pdf
+Thông tin chương trình: https://www.startradervn.net/vps/
+Cần hỗ trợ, nhắn [tên Sales] nhé.</pre>
       <button class="copy" data-target="t4" type="button">Copy bài</button>
     </div>
 
     <div class="tpl-card">
-      <div class="tpl-head"><h3>Partner Switch Bonus (tin nhắn riêng)</h3><div class="tpl-tags"><span class="chip soon">IB</span></div></div>
+      <div class="tpl-head"><h3>Partner Switch Bonus (tin nhắn riêng)</h3><div class="tpl-tags"><span class="chip soon">IB</span><span class="chip hold">Chỉ gửi riêng, chờ Compliance</span></div></div>
 <pre class="tpl" id="t5">Chào anh/chị [tên IB],
 
-STARTRADER có chương trình Partner Switch Bonus dành cho đối tác IB chuyển về STARTRADER, áp dụng từ 19/11/2026:
-• Tier 1: USD 12.000 mỗi kỳ khi đạt 2 trong 3 chỉ tiêu: 40 NQC, net deposit USD 150K, volume USD 100M
-• Tier 2: USD 6.000 mỗi kỳ khi đạt 2 trong 3 chỉ tiêu: 20 NQC, net deposit USD 75K, volume USD 50M
-• Thời gian 6 kỳ theo tháng, thưởng tối đa USD 72.000
+STARTRADER gửi anh/chị chương trình PARTNER SWITCH BONUS dành cho đối tác IB chuyển về STARTRADER.
+Thời gian: từ 19/11/2026, gồm 6 kỳ theo tháng
 
-Lưu ý: chỉ tính khách do anh/chị giới thiệu trực tiếp, và cần opt-in trong 1 tháng kể từ ngày được duyệt làm đối tác.
+Cơ cấu chương trình gồm:
+• Tier 1: USD 12.000 mỗi kỳ khi đạt 2 trong 3 chỉ tiêu: 40 khách mới hợp lệ, net deposit USD 150K, volume USD 100M.
+• Tier 2: USD 6.000 mỗi kỳ khi đạt 2 trong 3 chỉ tiêu: 20 khách mới hợp lệ, net deposit USD 75K, volume USD 50M.
+• Thưởng tối đa USD 72.000.
+• Khách mới hợp lệ là khách nạp ròng từ USD 500, giao dịch ít nhất 2 lot, giữ lệnh ít nhất 10 phút.
+• Chỉ tính khách giới thiệu trực tiếp. Hoạt động sub-IB không tính trừ khi được duyệt.
+• IB cần opt-in trong 1 tháng kể từ ngày được duyệt làm đối tác.
 
-Em gửi anh/chị tài liệu chi tiết nhé: https://www.startradervn.net/partner-switch-bonus/
-Em hẹn anh/chị [thời gian] để trao đổi.</pre>
+Điều kiện chi tiết xem tại T&amp;C: https://www.startradervn.net/partner-switch-bonus/
+Cần hỗ trợ opt-in, nhắn [tên Sales] nhé.</pre>
       <button class="copy" data-target="t5" type="button">Copy bài</button>
+    </div>
+
+    <div class="tpl-card">
+      <div class="tpl-head"><h3>Golden Ticket Rush (teaser)</h3><div class="tpl-tags"><span class="chip soon">Retail</span><span class="chip hold">Chưa đăng, chờ T&amp;C</span></div></div>
+<pre class="tpl" id="t6">GOLDEN TICKET RUSH
+Thời gian: từ 07/12 đến 25/12/2026, 15 ngày
+
+Cơ cấu chương trình gồm:
+• Điều kiện: nạp ròng từ USD 200.
+• Mỗi 0,5 lot GOLD giao dịch được 1 ticket.
+• Tổng 101 giải thưởng, giá trị khoảng USD 2.815.
+
+Điều kiện chi tiết xem tại T&amp;C: [link T&amp;C]
+Cần hỗ trợ, nhắn [tên Sales] nhé.</pre>
+      <button class="copy" data-target="t6" type="button">Copy bài</button>
     </div>
   </div>
 </section>
 
 <footer>
-  Nguồn: T&amp;C chính thức của từng chương trình. Kiểm tra lại T&amp;C mới nhất trước mỗi lần đăng.
+  Nguồn: Vietnam Promotion Calendar [Official] (Lark), T&amp;C PMT326, PMT310 và Black Friday Power Play. Kiểm tra lại T&amp;C mới nhất trước mỗi lần đăng.
 </footer>
 </div>
 
@@ -404,7 +522,7 @@ Em hẹn anh/chị [thời gian] để trao đổi.</pre>
     {name:'Partner Switch Bonus',short:'Partner Switch',aud:'ib',s:'2026-11-19',card:'c-psb'},
     {name:'Trusted Partners',short:'Trusted',aud:'ib',s:'2026-11-23',card:'c-tp'},
     {name:'Golden Ticket Rush',short:'Golden Ticket',aud:'retail',s:'2026-12-07',card:'c-gtr'},
-    {name:'STAR Loyalty (dự kiến)',short:'STAR Loyalty*',aud:'retail',s:'2026-11-24',card:'c-loy'},
+    {name:'STAR Loyalty (dự kiến)',short:'STAR Loyalty*',aud:'retail',s:'2026-11-24',card:'c-loy'}
   ].map(function(p){p.S=P(p.s);return p;});
 
   var COUNT=10; /* Aug 2026 to May 2027 */
