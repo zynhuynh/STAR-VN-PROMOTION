@@ -6,7 +6,7 @@
 <title>Vietnam&#39;s Promotion Calendar</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
 <style>
 :root{
   /* Layout idea: white sheet, navy headings, light-blue info boxes, one monthly calendar leading the page. */
@@ -136,6 +136,60 @@ button.copy:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px}
 @media (max-width:520px){h1{font-size:27px} dl{grid-template-columns:80px 1fr}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* ---------- look aligned with startrader.com: navy hero, turquoise CTA, 5-6px radius, uppercase titles ---------- */
+body{overflow-x:hidden}
+.wrap{padding-top:0}
+header{position:relative;isolation:isolate;color:#fff;border-bottom:0;padding:38px 0 26px;gap:12px}
+header::before{content:"";position:absolute;top:0;bottom:0;left:-100vw;right:-100vw;z-index:-1;background:radial-gradient(ellipse 40% 55% at 88% 12%,rgba(70,100,150,.28),transparent 70%),radial-gradient(ellipse 45% 22% at 90% 92%,rgba(190,210,245,.55),rgba(120,150,200,.22) 45%,transparent 75%),linear-gradient(180deg,#05070f 0%,#0c1222 45%,#1d2942 100%)}
+header::after{content:"";position:absolute;left:-100vw;right:-100vw;bottom:0;height:4px;z-index:-1;background:var(--accent)}
+.kicker{color:var(--accent);letter-spacing:.14em}
+h1{font-size:46px;font-style:italic;font-weight:800;text-transform:uppercase;letter-spacing:-.01em;line-height:1.08;color:#fff}
+h1 .grad{background:linear-gradient(90deg,#E3EBFF 0%,#8FAEFF 55%,#5B84FF 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#8FAEFF;padding-right:.08em}
+.meta{color:#C9D3EA}
+.meta b{color:#fff}
+nav{margin-top:8px}
+nav a{color:#fff;background:transparent;border:1.5px solid rgba(255,255,255,.4);border-radius:6px;padding:7px 14px}
+nav a:hover,nav a:focus-visible{border-color:var(--accent);color:var(--accent)}
+nav a.src{background:var(--accent);border-color:var(--accent);color:var(--navy);font-weight:800}
+nav a.src:hover,nav a.src:focus-visible{color:var(--navy);filter:brightness(1.08)}
+section{margin-top:46px}
+.sec-head{gap:12px;margin-bottom:6px}
+.tag{background:var(--navy);color:var(--accent);border:0;border-radius:5px;padding:3px 9px;font-size:13px}
+h2{font-size:24px;text-transform:uppercase;letter-spacing:.02em}
+.grp{display:flex;align-items:center;gap:10px;font-size:15px;text-transform:uppercase;letter-spacing:.08em;color:var(--navy)}
+.grp::before{content:"";width:22px;height:4px;border-radius:2px;background:var(--accent)}
+.filters button{border-radius:6px;border-color:var(--blue-mid);padding:7px 14px}
+.filters button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:var(--accent)}
+.chip{border-radius:5px}
+.card,.card.ib{border-radius:16px;border:1px solid rgba(22,233,215,.55);border-left:1px solid rgba(22,233,215,.55);background:linear-gradient(160deg,#fff 0%,#f6faff 100%);box-shadow:0 2px 14px rgba(13,13,75,.06)}
+.card:target{box-shadow:0 0 0 3px var(--accent)}
+.card h3{font-size:18px}
+.lk{border-radius:6px;border-color:var(--navy);color:var(--navy)}
+.lk:hover,.lk:focus-visible{background:var(--navy);color:var(--accent)}
+.more{border-radius:8px}
+.more>summary{color:var(--navy);border-radius:8px}
+.more>summary:hover,.more>summary:focus-visible{background:var(--blue-soft)}
+.pitch{border-left:4px solid var(--accent);border-radius:6px}
+button.copy{background:var(--accent);color:var(--navy);border-radius:6px;font-weight:800;padding:9px 16px}
+button.copy:hover{filter:brightness(1.06)}
+.tpl-card{border-radius:10px;box-shadow:0 2px 12px rgba(13,13,75,.07)}
+.cal{border-radius:10px;box-shadow:0 2px 12px rgba(13,13,75,.07)}
+.cal-bar button{background:var(--accent);border-radius:6px;font-weight:800}
+.cal-bar select{border-radius:6px}
+.cell.today span{background:var(--navy);color:var(--accent)}
+table.tier th{background:var(--navy);color:var(--accent)}
+.mech-n{background:var(--navy);color:var(--accent)}
+footer{border-top:3px solid var(--navy)}
+@media (max-width:520px){h1{font-size:30px}}
+
+header{min-height:300px;justify-content:center}
+/* running light border, like the account cards on startrader.com */
+@property --a{syntax:"<angle>";initial-value:0deg;inherits:false}
+.card,.tpl-card{position:relative}
+.card::after,.tpl-card::after{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:2px;pointer-events:none;background:conic-gradient(from var(--a),transparent 0 62%,rgba(22,233,215,.15) 70%,var(--accent) 94%,#fff 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);animation:run 5s linear infinite}
+@keyframes run{to{--a:360deg}}
+@media (prefers-reduced-motion:reduce){.card::after,.tpl-card::after{animation:none}}
 </style>
 </head>
 <body>
@@ -143,7 +197,7 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
 
 <header>
   <div class="kicker">STARTRADER Vietnam · Marketing</div>
-  <h1>Vietnam's Promotion Calendar</h1>
+  <h1>Vietnam's Promotion<br><span class="grad">Calendar</span></h1>
   <div class="meta">
     <span><b>Cập nhật:</b> 17/11/2026</span>
     <span><b>Dùng cho:</b> BD và Sales, nội bộ</span>
@@ -761,20 +815,27 @@ Và đây mới chỉ là khởi đầu. Team đang chuẩn bị thêm những c
   });
   var fbtn=[].slice.call(document.querySelectorAll('#filters button'));
   var fnote=document.getElementById('filter-note'), fempty=document.getElementById('filter-empty');
-  function applyFilter(f){
+  var sel=[];
+  function applyFilter(list){
+    sel=(list==='all'||!list||!list.length)?[]:list;
     var shown=0;
-    cards.forEach(function(c){var ok=f==='all'||c.getAttribute('data-status')===f;c.hidden=!ok;if(ok)shown++;});
+    cards.forEach(function(c){var ok=!sel.length||sel.indexOf(c.getAttribute('data-status'))>-1;c.hidden=!ok;if(ok)shown++;});
     [].slice.call(document.querySelectorAll('h3.grp')).forEach(function(h){
       var g=h.nextElementSibling; while(g&&!g.classList.contains('grid')) g=g.nextElementSibling;
       h.hidden=!g||!g.querySelector('.card:not([hidden])');
     });
-    fbtn.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-f')===f?'true':'false');});
-    fnote.hidden=f!=='soon'; fempty.hidden=shown>0;
+    fbtn.forEach(function(b){var f=b.getAttribute('data-f');b.setAttribute('aria-pressed',(f==='all'?!sel.length:sel.indexOf(f)>-1)?'true':'false');});
+    fnote.hidden=sel.indexOf('soon')<0; fempty.hidden=shown>0;
   }
   fbtn.forEach(function(b){
     var f=b.getAttribute('data-f');
     if(f!=='all'){var n=cards.filter(function(c){return c.getAttribute('data-status')===f;}).length; b.textContent+=' ('+n+')';}
-    b.addEventListener('click',function(){applyFilter(f);});
+    b.addEventListener('click',function(){
+      if(f==='all'){applyFilter('all');return;}
+      var k=sel.indexOf(f), next=sel.slice();
+      if(k>-1) next.splice(k,1); else next.push(f);
+      applyFilter(next);
+    });
   });
   document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a.st'); if(a) applyFilter('all');});
   applyFilter('all');
