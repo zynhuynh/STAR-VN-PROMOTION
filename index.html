@@ -187,7 +187,8 @@ header{min-height:300px;justify-content:center}
 /* running light border, like the account cards on startrader.com */
 @property --a{syntax:"<angle>";initial-value:0deg;inherits:false}
 .card,.tpl-card{position:relative}
-.card::after,.tpl-card::after{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:2px;pointer-events:none;background:conic-gradient(from var(--a),transparent 0 62%,rgba(22,233,215,.15) 70%,var(--accent) 94%,#fff 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);animation:run 5s linear infinite}
+.card::after,.tpl-card::after{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:2px;pointer-events:none;background:conic-gradient(from var(--a),transparent 0 62%,rgba(22,233,215,.15) 70%,var(--accent) 94%,#fff 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);opacity:0;transition:opacity .25s}
+.card:hover::after,.tpl-card:hover::after{opacity:1;animation:run 4s linear infinite}
 @keyframes run{to{--a:360deg}}
 @media (prefers-reduced-motion:reduce){.card::after,.tpl-card::after{animation:none}}
 </style>
