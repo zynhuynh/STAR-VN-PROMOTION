@@ -46,32 +46,28 @@ h2{margin:0;font-size:21px;font-weight:800;text-wrap:balance}
 .chip.hold{background:var(--hold-bg);color:var(--hold)}
 
 /* calendar */
-.cal{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
-.cal-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--navy);color:#fff;padding:10px 14px;flex-wrap:wrap}
-.cal-title{font-size:18px;font-weight:800;min-width:150px;text-align:center}
-.cal-bar button{font-family:var(--font);font-size:14px;font-weight:700;color:var(--navy);background:#fff;border:0;border-radius:8px;padding:7px 14px;cursor:pointer}
+.cal{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;max-width:640px}
+.cal-bar{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--navy);color:#fff;padding:8px 12px;flex-wrap:wrap}
+.cal-title{font-size:16px;font-weight:800;min-width:120px;text-align:center}
+.cal-bar button{font-family:var(--font);font-size:13px;font-weight:700;color:var(--navy);background:#fff;border:0;border-radius:8px;padding:6px 12px;cursor:pointer}
 .cal-bar button:disabled{opacity:.35;cursor:default}
 .cal-bar button:focus-visible,.cal-bar select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-.cal-bar select{font-family:var(--font);font-size:13px;font-weight:600;border-radius:8px;border:0;padding:7px 10px;color:var(--navy);background:#fff}
+.cal-bar select{font-family:var(--font);font-size:12.5px;font-weight:600;border-radius:8px;border:0;padding:6px 8px;color:var(--navy);background:#fff}
 .cal-scroll{overflow-x:auto}
-.cal-grid{min-width:640px}
+.cal-grid{min-width:460px}
 .dow{display:grid;grid-template-columns:repeat(7,1fr);background:var(--blue-soft);border-bottom:1px solid var(--line)}
-.dow div{padding:7px 0;text-align:center;font-size:12px;font-weight:700;color:var(--muted)}
-.week{position:relative;display:flex;border-bottom:1px solid var(--line)}
-.week:last-child{border-bottom:0}
-.day{flex:1 1 0;border-left:1px solid var(--line);padding:4px 6px;font-size:12px;font-weight:600;color:var(--navy);min-width:0}
-.day:first-child{border-left:0}
-.day.out{color:#9A9FA8;background:#FAFBFD}
-.day.today span{display:inline-block;background:var(--blue);color:#fff;border-radius:999px;min-width:22px;padding:0 5px;text-align:center}
-.bar{position:absolute;height:20px;display:flex;align-items:center;padding:0 8px;font-size:11.5px;font-weight:700;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-decoration:none;color:#fff}
-.bar.thin{height:15px;font-size:10.5px}
-.bar.retail{background:var(--blue)}
-.bar.ib{background:var(--navy)}
-.bar.retail.always{background:var(--blue-mid);color:var(--navy)}
-.bar.ib.always{background:#CFCFDB;color:var(--navy)}
-a.bar:hover,a.bar:focus-visible{filter:brightness(1.15);outline:none}
-.cal-legend{display:flex;flex-wrap:wrap;gap:8px 16px;padding:10px 14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);background:#fff}
-.cal-legend i{display:inline-block;width:14px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.dow div{padding:5px 0;text-align:center;font-size:11px;font-weight:700;color:var(--muted)}
+.mgrid{display:grid;grid-template-columns:repeat(7,1fr)}
+.cell{min-height:44px;border-top:1px solid var(--line);border-left:1px solid var(--line);padding:3px 4px;font-size:11px;font-weight:600;color:var(--navy);min-width:0}
+.cell:nth-child(7n+1){border-left:0}
+.cell.out{color:#B4B9C2;background:#FAFBFD}
+.cell.today span{display:inline-block;background:var(--blue);color:#fff;border-radius:999px;min-width:18px;padding:0 4px;text-align:center}
+.st{display:block;margin-top:3px;font-size:9.5px;font-weight:700;line-height:1.25;padding:2px 4px;border-radius:4px;color:#fff;text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.st.retail{background:var(--blue)}
+.st.ib{background:var(--navy)}
+a.st:hover,a.st:focus-visible{filter:brightness(1.2);outline:none}
+.cal-legend{display:flex;flex-wrap:wrap;gap:6px 14px;padding:8px 12px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);background:#fff}
+.cal-legend i{display:inline-block;width:12px;height:9px;border-radius:3px;margin-right:5px;vertical-align:-1px}
 .cal-note{margin:10px 2px 0;font-size:13px;color:var(--muted)}
 
 /* cards */
@@ -138,7 +134,7 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
 
 <section id="lich">
   <div class="sec-head"><span class="tag">01</span><h2>Calendar</h2></div>
-  <p class="sub">Tháng 8/2026 đến tháng 5/2027. Chỉ tô thời gian chương trình chạy. Bấm vào thanh để xem chi tiết chương trình.</p>
+  <p class="sub">Tháng 8/2026 đến tháng 5/2027. Mỗi chương trình chỉ đánh dấu ngày bắt đầu. Bấm vào tên để xem chi tiết.</p>
   <div class="cal" id="cal">
     <div class="cal-bar">
       <button type="button" id="prev" aria-label="Tháng trước">‹ Trước</button>
@@ -152,8 +148,7 @@ footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:v
     <div class="cal-legend">
       <span><i style="background:#0047BB"></i>Retail</span>
       <span><i style="background:#0D0D4B"></i>IB</span>
-      <span><i style="background:#CCDAF1"></i>Retail chạy liên tục</span>
-      <span><i style="background:#CFCFDB"></i>IB chạy liên tục</span>
+      <span>Chỉ hiển thị ngày bắt đầu của mỗi chương trình</span>
     </div>
   </div>
 </section>
@@ -336,31 +331,24 @@ Em hẹn anh/chị [thời gian] để trao đổi.</pre>
 
 <script>
 (function(){
-  /* ---------- calendar ---------- */
+  /* ---------- calendar: start dates only ---------- */
   var DAY=864e5;
   function P(s){var a=s.split('-');return new Date(+a[0],+a[1]-1,+a[2]);}
   function diff(a,b){return Math.round((a-b)/DAY);}
-  function f2(n){return (n<10?'0':'')+n;}
-  function fmt(d){return f2(d.getDate())+'/'+f2(d.getMonth()+1);}
-  /* dated programs first, always-on last, so always-on sit at the bottom of each week */
   var PROGS=[
-    {name:'PMT299 Hành trình săn kho báu',aud:'retail',s:'2026-08-17',e:'2026-10-31',card:null},
-    {name:'PMT336 Halloween giveaway',aud:'retail',s:'2026-10-21',e:'2026-11-04',card:null},
-    {name:'Black Friday Power Play',aud:'retail',s:'2026-11-16',e:'2026-12-04',card:'c-bf'},
-    {name:'STAR Copy Reward',aud:'retail',s:'2026-11-16',e:'2027-01-21',card:'c-copy'},
-    {name:'Partner Switch Bonus',aud:'ib',s:'2026-11-19',e:'2027-05-31',card:'c-psb',open:true},
-    {name:'VPS và Swap Free',aud:'retail',s:'2026-08-01',e:'2027-05-31',card:'c-vps',always:true},
-    {name:'MIB Policy',aud:'ib',s:'2026-08-01',e:'2027-05-31',card:'c-mib',always:true}
-  ].map(function(p){p.S=P(p.s);p.E=P(p.e);return p;});
+    {name:'PMT299 Hành trình săn kho báu',short:'PMT299',aud:'retail',s:'2026-08-17',card:null},
+    {name:'PMT336 Halloween giveaway',short:'PMT336 Halloween',aud:'retail',s:'2026-10-21',card:null},
+    {name:'Black Friday Power Play',short:'Black Friday',aud:'retail',s:'2026-11-16',card:'c-bf'},
+    {name:'STAR Copy Reward',short:'STAR Copy',aud:'retail',s:'2026-11-16',card:'c-copy'},
+    {name:'Partner Switch Bonus',short:'Partner Switch',aud:'ib',s:'2026-11-19',card:'c-psb'},
+  ].map(function(p){p.S=P(p.s);return p;});
 
-  var FIRST=new Date(2026,7,1), COUNT=10; /* Aug 2026 to May 2027 */
+  var COUNT=10; /* Aug 2026 to May 2027 */
   var MN=['Tháng 1','Tháng 2','Tháng 3','Tháng 4','Tháng 5','Tháng 6','Tháng 7','Tháng 8','Tháng 9','Tháng 10','Tháng 11','Tháng 12'];
   var DOW=['T2','T3','T4','T5','T6','T7','CN'];
   var today=new Date(); today=new Date(today.getFullYear(),today.getMonth(),today.getDate());
   var idx=0;
-  (function(){var d=diff(new Date(today.getFullYear(),today.getMonth(),1),FIRST);
-    var m=(today.getFullYear()-2026)*12+today.getMonth()-7;
-    idx=(m>=0&&m<COUNT)?m:3;})();
+  (function(){var m=(today.getFullYear()-2026)*12+today.getMonth()-7;idx=(m>=0&&m<COUNT)?m:3;})();
 
   var grid=document.getElementById('cal-grid'), title=document.getElementById('cal-title'),
       sel=document.getElementById('cal-select'), prev=document.getElementById('prev'), next=document.getElementById('next');
@@ -370,6 +358,7 @@ Em hẹn anh/chị [thời gian] để trao đổi.</pre>
     o.value=i;o.textContent=MN[d.getMonth()]+' '+d.getFullYear();sel.appendChild(o);
   }
 
+  function pad(n){return (n<10?'0':'')+n;}
   function render(){
     var first=new Date(2026,7+idx,1), y=first.getFullYear(), m=first.getMonth();
     title.textContent=MN[m]+' / '+y; sel.value=idx;
@@ -377,40 +366,23 @@ Em hẹn anh/chị [thời gian] để trao đổi.</pre>
     var last=new Date(y,m+1,0);
     var gs=new Date(first.getTime()-((first.getDay()+6)%7)*DAY);
     var ge=new Date(last.getTime()+(6-((last.getDay()+6)%7))*DAY);
-    var weeks=(diff(ge,gs)+1)/7;
-    var list=PROGS.filter(function(p){return p.E>=gs&&p.S<=ge;});
-    /* fixed vertical position per programme for the whole month */
-    var tops=[],acc=30;
-    list.forEach(function(p){tops.push(acc);acc+=(p.always?18:23);});
-    var wkH=acc+6;
-    var html='<div class="dow">'+DOW.map(function(x){return '<div>'+x+'</div>';}).join('')+'</div>';
-    for(var w=0;w<weeks;w++){
-      var ws=new Date(gs.getTime()+w*7*DAY);
-      html+='<div class="week" style="height:'+wkH+'px">';
-      for(var c=0;c<7;c++){
-        var dd=new Date(ws.getTime()+c*DAY);
-        var cls='day'+(dd.getMonth()!==m?' out':'')+(diff(dd,today)===0?' today':'');
-        html+='<div class="'+cls+'"><span>'+dd.getDate()+'</span></div>';
+    var n=diff(ge,gs)+1;
+    var html='<div class="dow">'+DOW.map(function(x){return '<div>'+x+'</div>';}).join('')+'</div><div class="mgrid">';
+    for(var k=0;k<n;k++){
+      var dd=new Date(gs.getTime()+k*DAY), inM=dd.getMonth()===m;
+      var cls='cell'+(inM?'':' out')+(diff(dd,today)===0?' today':'');
+      html+='<div class="'+cls+'"><span>'+dd.getDate()+'</span>';
+      if(inM){
+        PROGS.forEach(function(p){
+          if(diff(p.S,dd)!==0) return;
+          var tip=p.name+' · bắt đầu '+pad(p.S.getDate())+'/'+pad(p.S.getMonth()+1);
+          if(p.card) html+='<a class="st '+p.aud+'" href="#'+p.card+'" title="'+tip+'">'+p.short+'</a>';
+          else html+='<div class="st '+p.aud+'" title="'+tip+'">'+p.short+'</div>';
+        });
       }
-      list.forEach(function(p,li){
-        var c0=Math.max(0,diff(p.S,ws)), c1=Math.min(6,diff(p.E,ws));
-        if(c1<0||c0>6) return;
-        var left=(c0/7*100), width=((c1-c0+1)/7*100);
-        var rl=diff(p.S,ws)>=0, rr=diff(p.E,ws)<=6;
-        var style='left:calc('+left+'% + 2px);width:calc('+width+'% - 4px);top:'+tops[li]+'px;'+
-          'border-radius:'+(rl?'6px':'0')+' '+(rr?'6px':'0')+' '+(rr?'6px':'0')+' '+(rl?'6px':'0')+';';
-        var range=p.always?'Chạy liên tục':(fmt(p.S)+' đến '+(p.open?'hết kỳ':fmt(p.E)));
-        var tip=p.name+' · '+range;
-        var cl='bar '+p.aud+(p.always?' always thin':'');
-        if(p.card){
-          html+='<a class="'+cl+'" href="#'+p.card+'" title="'+tip+'" style="'+style+'">'+p.name+'</a>';
-        }else{
-          html+='<div class="'+cl+'" title="'+tip+'" style="'+style+'">'+p.name+'</div>';
-        }
-      });
       html+='</div>';
     }
-    grid.innerHTML=html;
+    grid.innerHTML=html+'</div>';
   }
   prev.addEventListener('click',function(){if(idx>0){idx--;render();}});
   next.addEventListener('click',function(){if(idx<COUNT-1){idx++;render();}});
