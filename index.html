@@ -919,5 +919,66 @@ Và đây mới chỉ là khởi đầu. Team đang chuẩn bị thêm những c
   });
 })();
 </script>
+<!-- promo assistant widget (website) -->
+<style>
+#pa-fab{position:fixed;right:22px;bottom:22px;z-index:50;font-family:var(--font);font-size:14px;font-weight:800;color:var(--navy);background:var(--accent);border:0;border-radius:999px;padding:13px 20px;cursor:pointer;box-shadow:0 6px 20px rgba(13,13,75,.3);display:none}
+#pa-fab:hover{filter:brightness(1.06)}
+#pa-panel{position:fixed;right:22px;bottom:22px;z-index:51;width:min(400px,calc(100vw - 24px));height:min(600px,calc(100vh - 44px));background:#fff;border:1px solid var(--blue-mid);border-radius:16px;box-shadow:0 14px 44px rgba(13,13,75,.35);display:none;flex-direction:column;overflow:hidden;font-family:var(--font)}
+#pa-panel.open{display:flex}
+#pa-head{background:var(--navy);color:#fff;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+#pa-head b{font-size:15px}
+#pa-head small{display:block;color:#9FB0D8;font-size:11.5px;font-weight:500}
+#pa-x{background:transparent;border:0;color:#fff;font-size:22px;line-height:1;cursor:pointer;padding:2px 6px}
+#pa-log{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:#F6F9FD}
+.pa-m{max-width:88%;padding:10px 13px;border-radius:12px;font-size:14px;line-height:1.6;white-space:pre-wrap;word-break:break-word}
+.pa-u{align-self:flex-end;background:var(--navy);color:#fff;border-bottom-right-radius:4px}
+.pa-b{align-self:flex-start;background:#fff;border:1px solid var(--blue-mid);color:var(--ink);border-bottom-left-radius:4px}
+.pa-sug{display:flex;flex-wrap:wrap;gap:6px}
+.pa-sug button{font-family:var(--font);font-size:12.5px;font-weight:700;color:var(--navy);background:#fff;border:1.5px solid var(--blue-mid);border-radius:999px;padding:6px 11px;cursor:pointer}
+.pa-sug button:hover{border-color:var(--navy)}
+#pa-form{display:flex;gap:8px;padding:10px;border-top:1px solid var(--blue-mid);background:#fff}
+#pa-in{flex:1;font-family:var(--font);font-size:14px;border:1.5px solid var(--blue-mid);border-radius:8px;padding:9px 11px;resize:none;height:42px;color:var(--ink)}
+#pa-in:focus{outline:none;border-color:var(--navy)}
+#pa-send{font-family:var(--font);font-weight:800;font-size:13px;background:var(--accent);color:var(--navy);border:0;border-radius:8px;padding:0 16px;cursor:pointer}
+#pa-send:disabled{opacity:.5;cursor:default}
+#pa-note{font-size:11px;color:#7B808A;padding:0 12px 8px;background:#fff}
+</style>
+<button id="pa-fab" type="button" style="display:block">Hỏi về chương trình</button>
+<div id="pa-panel" role="dialog" aria-label="Trợ lý chương trình">
+  <div id="pa-head"><div><b>Trợ lý chương trình</b><small>Trả lời theo nội dung trang này và các T&amp;C đã nạp</small></div><button id="pa-x" type="button" aria-label="Đóng">&times;</button></div>
+  <div id="pa-log"></div>
+  <form id="pa-form"><textarea id="pa-in" placeholder="Hỏi về cơ chế, điều kiện, thời gian, T&amp;C..." rows="1"></textarea><button id="pa-send" type="submit">Gửi</button></form>
+  <div id="pa-note">Câu trả lời chỉ dựa trên dữ liệu đã nạp. Thông tin chưa có thì hỏi Marketing trước khi báo khách.</div>
+</div>
+<script>
+(function(){
+  var WORKER_URL='https://promo-bot.huynhboikim2809.workers.dev';
+  var fab=document.getElementById('pa-fab'),panel=document.getElementById('pa-panel'),log=document.getElementById('pa-log'),
+      form=document.getElementById('pa-form'),inp=document.getElementById('pa-in'),send=document.getElementById('pa-send');
+  var history=[],busy=false,pw=sessionStorage.getItem('pa-pw')||'';
+  function add(cls,text){var d=document.createElement('div');d.className='pa-m '+cls;d.textContent=text;log.appendChild(d);log.scrollTop=log.scrollHeight;return d;}
+  function suggestions(){var w=document.createElement('div');w.className='pa-sug';
+    ['Chương trình nào đang chạy?','Black Friday: khách cũ có tham gia được không?','Partner Switch Bonus: điều kiện nhận thưởng là gì?','STAR Copy Reward: thưởng tối đa bao nhiêu?'].forEach(function(q){
+      var b=document.createElement('button');b.type='button';b.textContent=q;b.onclick=function(){w.remove();ask(q);};w.appendChild(b);});log.appendChild(w);}
+  function ask(q){
+    if(busy||!q.trim())return;
+    if(!pw){pw=(window.prompt('Nhập mật khẩu của Sales team để dùng trợ lý:')||'').trim();if(!pw)return;}
+    busy=true;send.disabled=true;add('pa-u',q);history.push({role:'user',content:q});
+    var out=add('pa-b','Đang tra cứu...');
+    fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:pw,messages:history.slice(-10)})})
+    .then(function(r){return r.json().then(function(j){return {s:r.status,j:j};});})
+    .then(function(o){
+      if(o.s===401){pw='';sessionStorage.removeItem('pa-pw');out.textContent='Sai mật khẩu. Hỏi lại để nhập lại mật khẩu.';history.pop();return;}
+      if(o.s!==200){out.textContent='Chưa trả lời được lúc này, thử lại sau.';history.pop();return;}
+      sessionStorage.setItem('pa-pw',pw);out.textContent=o.j.text;history.push({role:'assistant',content:o.j.text});})
+    .catch(function(){out.textContent='Không kết nối được trợ lý, thử lại sau.';history.pop();})
+    .then(function(){busy=false;send.disabled=false;log.scrollTop=log.scrollHeight;inp.focus();});
+  }
+  form.addEventListener('submit',function(e){e.preventDefault();var q=inp.value;inp.value='';ask(q);});
+  inp.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();form.requestSubmit();}});
+  fab.onclick=function(){panel.classList.add('open');fab.style.display='none';if(!log.children.length){add('pa-b','Chào bạn, mình trả lời về các chương trình khuyến mãi dựa trên tài liệu của Marketing. Bạn muốn hỏi gì?');suggestions();}inp.focus();};
+  document.getElementById('pa-x').onclick=function(){panel.classList.remove('open');fab.style.display='block';};
+})();
+</script>
 </body>
 </html>
