@@ -969,7 +969,7 @@ Và đây mới chỉ là khởi đầu. Team đang chuẩn bị thêm những c
     .then(function(r){return r.json().then(function(j){return {s:r.status,j:j};});})
     .then(function(o){
       if(o.s===401){pw='';sessionStorage.removeItem('pa-pw');out.textContent='Sai mật khẩu. Hỏi lại để nhập lại mật khẩu.';history.pop();return;}
-      if(o.s!==200){out.textContent='Chưa trả lời được lúc này, thử lại sau.';history.pop();return;}
+      if(o.s!==200){out.textContent='Chưa trả lời được lúc này, thử lại sau. (mã lỗi: '+(o.j&&o.j.error||'')+' '+(o.j&&o.j.status||o.s)+(o.j&&o.j.detail?' - '+o.j.detail:'')+')';history.pop();return;}
       sessionStorage.setItem('pa-pw',pw);out.textContent=o.j.text;history.push({role:'assistant',content:o.j.text});})
     .catch(function(){out.textContent='Không kết nối được trợ lý, thử lại sau.';history.pop();})
     .then(function(){busy=false;send.disabled=false;log.scrollTop=log.scrollHeight;inp.focus();});
