@@ -224,6 +224,12 @@ header{min-height:300px;justify-content:center}
 .card:hover .lk.off{color:#9FB0D8;border-color:rgba(255,255,255,.3)}
 .card:hover a{color:var(--accent)}
 @keyframes run{to{--a:360deg}}
+/* template preview: show a short excerpt, expand on demand; Copy stays visible */
+pre.tpl.clamp{max-height:calc(1.6em * 4 + 24px);overflow:hidden;-webkit-mask-image:linear-gradient(#000 55%,transparent 100%);mask-image:linear-gradient(#000 55%,transparent 100%)}
+.tpl-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+button.more-tpl{font-family:var(--font);font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--navy);background:#fff;border:1.5px solid var(--navy);border-radius:6px;padding:8px 16px;cursor:pointer}
+button.more-tpl:hover,button.more-tpl:focus-visible{background:var(--navy);color:var(--accent);outline:none}
+
 @media (prefers-reduced-motion:reduce){.card::after,.tpl-card::after{animation:none}}
 </style>
 </head>
@@ -874,6 +880,22 @@ Và đây mới chỉ là khởi đầu. Team đang chuẩn bị thêm những c
   });
   document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a.st'); if(a) applyFilter('all');});
   applyFilter('all');
+
+  /* ---------- template preview (collapse / expand) ---------- */
+  document.querySelectorAll('pre.tpl').forEach(function(pre){
+    var copy=pre.parentNode.querySelector('button.copy'); if(!copy) return;
+    var row=document.createElement('div'); row.className='tpl-actions';
+    pre.insertAdjacentElement('afterend',row); row.appendChild(copy);
+    pre.classList.add('clamp');
+    if(pre.scrollHeight<=pre.clientHeight+6){pre.classList.remove('clamp');return;}
+    var t=document.createElement('button'); t.type='button'; t.className='more-tpl'; t.textContent='Xem thêm';
+    t.setAttribute('aria-expanded','false');
+    t.addEventListener('click',function(){
+      var open=pre.classList.toggle('clamp')===false;
+      t.textContent=open?'Thu gọn':'Xem thêm'; t.setAttribute('aria-expanded',open?'true':'false');
+    });
+    row.appendChild(t);
+  });
 
   /* ---------- copy buttons ---------- */
   function fallbackCopy(el){
