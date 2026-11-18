@@ -962,7 +962,7 @@ Và đây mới chỉ là khởi đầu. Team đang chuẩn bị thêm những c
       var b=document.createElement('button');b.type='button';b.textContent=q;b.onclick=function(){w.remove();ask(q);};w.appendChild(b);});log.appendChild(w);}
   function ask(q){
     if(busy||!q.trim())return;
-    if(!pw){pw=(window.prompt('Nhập mật khẩu của Sales team để dùng trợ lý:')||'').trim();if(!pw)return;}
+    pw=pw||'open';
     busy=true;send.disabled=true;add('pa-u',q);history.push({role:'user',content:q});
     var out=add('pa-b','Đang tra cứu...');
     fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:pw,messages:history.slice(-10)})})
